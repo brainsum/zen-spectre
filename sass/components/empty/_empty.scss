@@ -1,0 +1,31 @@
+/**
+ * @file
+ * Spectre Empty states
+ *
+ * Empty states/blank slates are commonly used as placeholders for first time
+ * use, empty data and error screens.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#empty
+ */
+
+
+.empty {
+  background: $bg-color;
+  border-radius: $border-radius;
+  color: $gray-color-dark;
+  text-align: center;
+  padding: $unit-16 $unit-8;
+
+  .empty-icon {
+    margin-bottom: $layout-spacing-lg;
+  }
+
+  .empty-title,
+  .empty-subtitle {
+    margin: $layout-spacing auto;
+  }
+
+  .empty-action {
+    margin-top: $layout-spacing-lg;
+  }
+}

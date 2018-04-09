@@ -1,0 +1,15 @@
+/**
+* @file
+* Basic styling
+* CSS reset, HTML elements and any other very basic stuffs.
+* all basic stuff is base subdirectory
+ * base/normalize file is the importer file
+*/
+
+
+// First import our custom variables and mixins
+@import "index";
+
+// Defaults
+@import "base/fonts";
+@import "base/normalize";

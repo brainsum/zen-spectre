@@ -1,0 +1,383 @@
+/**
+ * @file
+ * Drupal's Form item
+ *
+ * Wrapper for a form element (or group of form elements) and its label.
+ */
+
+
+// Dependencies.
+@import "../../utilities/clearfix";
+
+.form-item,
+%form-item {
+  margin: $line-height 0;
+
+  // The part of the label that indicates a required field.
+  &__required {
+    color: $error-color;
+  }
+
+  // The descriptive help text (separate from the label).
+  &__description {
+    color: $gray-color;
+    font-size: $font-size-sm;
+    margin-top: $unit-1;
+  }
+
+  &--is-error__widget {
+    border-color: $error-color;
+
+    &:focus {
+      @include control-shadow($error-color);
+    }
+  }
+
+  &--inline {
+    div,
+    label {
+      display: inline;
+    }
+
+    // There"s always an exception.
+    &__exception {
+      display: block;
+    }
+  }
+
+  &--tight {
+    margin: 0;
+  }
+
+  &--radio {
+    @extend %form-item--tight;
+  }
+
+  &--radio &__label,
+  &--radio__label {
+    display: inline;
+    font-weight: normal;
+  }
+
+  &--radio &__description,
+  &--radio__description {
+    margin-left: 1.4em;
+  }
+
+  &.is-error &__widget,
+  &--is-error__widget {
+    border: 1px solid $form-error;
+  }
+
+  &.is-error,
+  &--is-error {
+    input,
+    textarea,
+    select {
+      @extend %form-item--is-error__widget;
+    }
+  }
+}
+
+.form-group {
+  &:not(:last-child) {
+    margin-bottom: $layout-spacing;
+  }
+}
+
+//
+// Drupal selectors.
+//
+
+.form-item {
+  input.error,
+  textarea.error,
+  select.error {
+    @extend %form-item--is-error__widget;
+  }
+
+  .description {
+    @extend %form-item__description;
+  }
+}
+
+.form-submit {
+  margin: $line-height 0;
+}
+
+.form-required {
+  @extend %form-item__required;
+}
+
+// Password confirmation.
+.password-parent,
+.confirm-parent {
+  @extend %form-item--tight;
+}
+
+table {
+  .form-item {
+    @extend %form-item--tight;
+  }
+}
+
+.form-type-textfield {
+  &:not(:placeholder-shown) {
+    &:invalid {
+      border-color: $error-color;
+
+      &:focus {
+        @include control-shadow($error-color);
+      }
+    }
+  }
+}
+
+.form-type-radio,
+.form-type-checkbox,
+.form-type-switch {
+  @extend %form-item--radio;
+  display: inline-block;
+  line-height: $line-height;
+  margin: ($control-size - $control-size-sm) / 2 0;
+  min-height: 1.2rem;
+  padding: (($control-size-sm - $line-height) / 2) $control-padding-x (($control-size-sm - $line-height) / 2) ($control-icon-size + $control-padding-x);
+  position: relative;
+
+  label {
+    padding: 0;
+  }
+
+  input {
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+
+    &:focus+.form-icon {
+      @include control-shadow;
+      border-color: $primary-color;
+    }
+
+    &:checked+.form-icon {
+      background: $primary-color;
+      border-color: $primary-color;
+    }
+
+    &:active+.form-icon {
+      background: $bg-color-dark;
+    }
+  }
+
+  .form-icon {
+    @include control-transition;
+    border: $border-width solid $border-color-dark;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    background: $bg-color-light;
+    height: $control-icon-size;
+    left: 0;
+    top: ($control-size-sm - $control-icon-size) / 2;
+    width: $control-icon-size;
+  }
+
+  .description {
+    @extend %form-item--radio__description;
+  }
+}
+
+.form-type-radio {
+  .form-icon {
+    border-radius: 50%;
+  }
+
+  input {
+    &:checked+.form-icon {
+      &::before {
+        background: $bg-color-light;
+        border-radius: 50%;
+        content: "";
+        height: 4px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 4px;
+      }
+    }
+  }
+}
+
+.form-type-checkbox {
+  .form-icon {
+    border-radius: $border-radius;
+  }
+
+  input {
+    &:checked+.form-icon {
+      &::before {
+        background-clip: padding-box;
+        border: $border-width-lg solid $light-color;
+        border-left-width: 0;
+        border-top-width: 0;
+        content: "";
+        height: 12px;
+        left: 50%;
+        margin-left: -4px;
+        margin-top: -8px;
+        position: absolute;
+        top: 50%;
+        transform: rotate(45deg);
+        width: 8px;
+      }
+    }
+
+    &:indeterminate+.form-icon {
+      background: $primary-color;
+      border-color: $primary-color;
+
+      &::before {
+        background: $bg-color-light;
+        content: "";
+        height: 2px;
+        left: 50%;
+        margin-left: -5px;
+        margin-top: -1px;
+        position: absolute;
+        top: 50%;
+        width: 10px;
+      }
+    }
+  }
+}
+
+.form-type-switch {
+  padding-left: ($unit-8 + $control-padding-x);
+
+  .form-icon {
+    background: $gray-color-light;
+    background-clip: padding-box;
+    border-radius: $unit-2 + $border-width;
+    height: $unit-4 + $border-width * 2;
+    left: 0;
+    top: ($control-size-sm - $unit-4) / 2 - $border-width;
+    width: $unit-8;
+
+    &::before {
+      @include control-transition;
+      background: $bg-color-light;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: $unit-4;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $unit-4;
+    }
+  }
+
+  input {
+    &:checked+.form-icon {
+      &::before {
+        left: 14px;
+      }
+    }
+
+    &:active+.form-icon {
+      &::before {
+        background: $bg-color;
+      }
+    }
+  }
+}
+
+label.option {
+  @extend %form-item--radio__label;
+}
+
+.container-inline {
+  display: inline-flex;
+
+  label {
+    background: $bg-color;
+    border: $border-width solid $border-color-dark;
+    border-radius: $border-radius;
+    line-height: $line-height;
+    padding: $control-padding-y $control-padding-x;
+    white-space: nowrap;
+  }
+
+  .form-item {
+    flex: 1 1 auto;
+    z-index: $zindex-0;
+
+    &:first-child:not(:last-child) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+      margin-left: -$border-width;
+    }
+
+    &:last-child:not(:first-child) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      margin-left: -$border-width;
+    }
+
+    &:focus {
+      z-index: $zindex-0 + 1;
+    }
+  }
+
+  select {
+    width: auto;
+  }
+
+  // Fieldset contents always need to be rendered as block.
+  .fieldset-wrapper {
+    @extend %form-item--inline__exception;
+  }
+}
+
+
+// Form Icons
+.has-icon-left,
+.has-icon-right {
+  position: relative;
+
+  .form-icon {
+    height: $control-icon-size;
+    margin: 0 $control-padding-y;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: $control-icon-size;
+  }
+}
+
+.has-icon-left {
+  .form-icon {
+    left: $border-width;
+  }
+
+  .form-input {
+    padding-left: $control-icon-size + $control-padding-y * 2;
+  }
+}
+
+.has-icon-right {
+  .form-icon {
+    right: $border-width;
+  }
+
+  .form-input {
+    padding-right: $control-icon-size + $control-padding-y * 2;
+  }
+}

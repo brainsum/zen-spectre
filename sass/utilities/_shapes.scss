@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Spectre Shape utilities
+ *
+ * Shape utilities are used for change element shapes.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#shapes
+ */
+
+
+// Shapes
+.rounded {
+  border-radius: $border-radius;
+}
+
+.circle {
+  border-radius: 50%;
+}

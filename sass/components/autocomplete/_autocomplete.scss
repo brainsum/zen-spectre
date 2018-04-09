@@ -1,0 +1,104 @@
+/**
+ * @file
+ * Drupal's Autocomplete field + Spectre Autocomplete
+ *
+ * As the user starts to type a value, a selection list appears below the form
+ * item allowing them to choose an option.
+ *
+ * .is-throbbing - Waiting for search result.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#autocomplete
+ */
+
+
+// Animated throbber
+.autocomplete,
+%autocomplete {
+  background-image: image-url("components", "autocomplete/throbber-inactive.png");
+  background-position: 100% center;
+  background-repeat: no-repeat;
+  min-height: $unit-4;
+  position: relative;
+
+  // it won"t work on input field
+  /*&::after {
+   border: $border-width-lg solid $primary-color;
+   border-radius: 50%;
+   border-right-color: transparent;
+   border-top-color: transparent;
+   content: " ";
+   display: block;
+   height: $unit-4;
+   left: 50%;
+   margin-left: -$unit-2;
+   margin-top: -$unit-2;
+   position: absolute;
+   top: 50%;
+   width: $unit-4;
+   z-index: $zindex-0;
+  }*/
+
+  // Suggestion list.
+  &__list-wrapper {
+    border: 1px solid;
+    overflow: hidden;
+    position: absolute;
+    z-index: 100;
+  }
+
+  &__list {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    background: $autocomplete-bg;
+    color: $autocomplete;
+    cursor: default;
+    white-space: pre;
+
+    &.is-selected,
+    &--is-selected {
+      @include control-shadow;
+      border-color: $primary-color;
+    }
+  }
+
+  &.is-throbbing,
+  &--is-throbbing {
+    &::after {
+      animation: loading 500ms infinite linear;
+      border: $border-width-lg solid $primary-color;
+    }
+  }
+}
+
+
+// Drupal selectors.
+
+.form-autocomplete {
+  @extend %autocomplete;
+
+  &.throbbing {
+    @extend %autocomplete--is-throbbing;
+  }
+}
+
+// sass-lint:disable no-ids
+#autocomplete {
+  @extend %autocomplete__list-wrapper;
+
+  ul {
+    @extend %autocomplete__list;
+  }
+
+  li {
+    @extend %autocomplete__list-item;
+  }
+
+  .selected {
+    @extend %autocomplete__list-item--is-selected;
+  }
+}

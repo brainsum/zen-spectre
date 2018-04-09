@@ -1,0 +1,96 @@
+/**
+ * @file
+ * Spectre Media + Zen's Responsive media
+ *
+ * @see https://picturepan2.github.io/spectre/elements.html#media
+  */
+
+
+// Image responsive
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+// object-fit support is coming to Microsoft Edge
+// https://developer.microsoft.com/en-us/microsoft-edge/platform/status/objectfitandobjectposition/
+.img-fit-cover {
+  object-fit: cover;
+}
+
+.img-fit-contain {
+  object-fit: contain;
+}
+
+
+/*
+ * Responsive video
+ *
+ * Using a wrapper div, embedded videos can be made responsive so that their
+ * intrinsic aspect ratio is preserved at any screen width. The
+ * `responsive-video__embed` class is optional if the embed is an `iframe`.
+ */
+
+.responsive-video,
+%responsive-video {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 56.25%; // Default ratio 16:9, you can calculate this value by dividing 9 by 16
+  }
+
+  iframe,
+  object,
+  embed,
+  &__embed {
+    border: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  &--4-3 {
+    &::before {
+      padding-bottom: 75%; // Ratio 4:3
+    }
+  }
+}
+
+video {
+  height: auto;
+  max-width: 100%;
+
+  &::before {
+    content: none;
+  }
+}
+
+
+// Figure
+figure {
+  margin: 0 0 $layout-spacing;
+
+  figcaption {
+    color: $gray-color-dark;
+    margin-top: $layout-spacing;
+  }
+}
+
+
+// Drupal selectors.
+
+.media-youtube-video,
+.media-vimeo-preview-wrapper {
+  @extend %responsive-video;
+}

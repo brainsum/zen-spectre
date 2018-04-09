@@ -1,0 +1,50 @@
+/**
+ * @file
+ * Zen's Breadcrumb navigation + Spectre Breadcrumbs
+ *
+ * Breadcrumbs are used as navigational hierarchies to indicate current location.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#breadcrumbs
+ */
+
+//Dependencies
+@import "../visually-hidden/visually-hidden";
+
+
+.breadcrumb,
+%breadcrumb {
+  @media print {
+    display: none;
+  }
+
+  &__title {
+    @extend %visually-hidden;
+  }
+
+  &__list {
+    list-style: none;
+    margin: $unit-1 0;
+    padding: $unit-1 0;
+  }
+
+  &__item {
+    color: $gray-color-dark;
+    display: inline-block;
+    margin: 0;
+    padding: $unit-1 0;
+
+    &:not(:last-child) {
+      margin-right: $unit-2;
+
+      a {
+        color: $gray-color-dark;
+      }
+
+    }
+  }
+
+  &__separator {
+    color: $gray-color-light;
+    padding-left: $unit-2;
+  }
+}

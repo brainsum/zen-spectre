@@ -1,0 +1,58 @@
+/**
+ * @file
+ * Spectre Tiles
+ *
+ * Tiles are repeatable or embeddable information blocks.
+ *
+ * Add a container with the tile class. And add child elements with the
+ * tile-icon, tile-content or/and tile-action classes. The tile-icon and
+ * tile-action are optional.
+ *
+ * There are tile-title and tile-subtitle classes for title and subtitle text
+ * styles.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#tiles
+ */
+
+
+.tile {
+  align-content: space-between;
+  align-items: flex-start;
+  display: flex;
+
+  .tile-icon,
+  .tile-action {
+    flex: 0 0 auto;
+  }
+
+  .tile-content {
+    flex: 1 1 auto;
+
+    &:not(:first-child) {
+      padding-left: $unit-2;
+    }
+
+    &:not(:last-child) {
+      padding-right: $unit-2;
+    }
+  }
+
+  .tile-title,
+  .tile-subtitle {
+    line-height: $line-height;
+  }
+
+  &.tile-centered {
+    align-items: center;
+
+    .tile-content {
+      overflow: hidden;
+    }
+
+    .tile-title,
+    .tile-subtitle {
+      @include text-ellipsis;
+      margin-bottom: 0;
+    }
+  }
+}

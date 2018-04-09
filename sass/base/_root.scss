@@ -1,0 +1,41 @@
+// sass-lint:disable no-vendor-prefixes
+
+// Use the saner border-box model for all elements.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+html {
+  // Prevent adjustments of font size after orientation changes in IE and iOS.
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+  // On short pages, we want any background gradients to fill the entire height
+  // of the browser.
+  min-height: 100%;
+  box-sizing: border-box;
+  font-size: $html-font-size;
+  line-height: $html-line-height;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  // Remove default margin and padding.
+  margin: 0;
+  padding: 0;
+  background: $body-bg;
+  color: $body-font-color;
+  font-family: $body-font-family;
+  font-size: $font-size;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}

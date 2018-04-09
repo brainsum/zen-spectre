@@ -1,0 +1,29 @@
+/**
+ * @file
+ * Drupal's Inline links
+ *
+ * A list of links that are inline with each other.
+ */
+
+
+.inline-links,
+%inline-links {
+  padding: 0;
+
+  &__item {
+    display: inline;
+    list-style-type: none;
+    padding: 0 1em 0 0;
+  }
+}
+
+
+// Drupal selectors.
+
+.inline.links {
+  @extend %inline-links;
+
+  li {
+    @extend %inline-links__item;
+  }
+}

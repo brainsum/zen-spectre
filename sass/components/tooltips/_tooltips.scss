@@ -1,0 +1,95 @@
+/**
+ * @file
+ * Spectre Tooltips
+ *
+ * And you can add the toast-primary, toast-success, toast-warning or
+ * toast-error class for additional toast colors.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#tooltips
+ */
+
+
+.tooltip {
+  position: relative;
+
+  &::after {
+    content: attr(data-tooltip);
+    display: block;
+    position: absolute;
+    z-index: $zindex-3;
+    left: 50%;
+    bottom: 100%;
+    opacity: 0;
+    max-width: $control-width-sm;
+    padding: $unit-1 $unit-2;
+    background: rgba($dark-color, .9);
+    border-radius: $border-radius;
+    color: $light-color;
+    font-size: $font-size-sm;
+    overflow: hidden;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    transform: translate(-50%, $unit-2);
+    transition: all .2s ease;
+    white-space: pre;
+  }
+
+  &:focus,
+  &:hover {
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, -$unit-1);
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    pointer-events: auto;
+  }
+
+  &.tooltip-right {
+    &::after {
+      bottom: 50%;
+      left: 100%;
+      transform: translate(-$unit-1, 50%);
+    }
+
+    &:focus,
+    &:hover {
+      &::after {
+        transform: translate($unit-1, 50%);
+      }
+    }
+  }
+
+  &.tooltip-bottom {
+    &::after {
+      bottom: auto;
+      top: 100%;
+      transform: translate(-50%, -$unit-2);
+    }
+
+    &:focus,
+    &:hover {
+      &::after {
+        transform: translate(-50%, $unit-1);
+      }
+    }
+  }
+
+  &.tooltip-left {
+    &::after {
+      bottom: 50%;
+      left: auto;
+      right: 100%;
+      transform: translate($unit-2, 50%);
+    }
+
+    &:focus,
+    &:hover {
+      &::after {
+        transform: translate(-$unit-1, 50%);
+      }
+    }
+  }
+}

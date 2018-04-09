@@ -1,0 +1,86 @@
+/**
+ * @file
+ * Spectre Popovers
+ *
+ * Popovers are small overlay content containers. Popovers component is built
+ * entirely in CSS.
+ *
+ * Wrap an element by a container with the popover class. And add a container
+ * with the popover-container next to the element. You can use Cards component
+ * inside the popover-container.
+ *
+ * Also, you can add the popover-right, popover-bottom or popover-left class to
+ * define the position. By default, the popovers appear above the element.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#popovers
+ */
+
+
+.popover {
+  display: inline-block;
+  position: relative;
+
+  .popover-container {
+    left: 50%;
+    opacity: 0;
+    padding: $layout-spacing;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .2s ease;
+    width: $control-width-sm;
+    z-index: $zindex-4;
+  }
+
+  *:focus + .popover-container,
+  &:hover .popover-container,
+  .popover-container:hover {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+  }
+
+  &.popover-right {
+    .popover-container {
+      left: 100%;
+      top: 50%;
+    }
+
+    :focus + .popover-container,
+    &:hover .popover-container,
+    .popover-container:hover {
+      transform: translate(0, -50%) scale(1);
+    }
+  }
+
+  &.popover-bottom {
+    .popover-container {
+      left: 50%;
+      top: 100%;
+    }
+
+    :focus + .popover-container,
+    &:hover .popover-container,
+    .popover-container:hover {
+      transform: translate(-50%, 0) scale(1);
+    }
+  }
+
+  &.popover-left {
+    .popover-container {
+      left: 0;
+      top: 50%;
+    }
+
+    :focus + .popover-container,
+    &:hover .popover-container,
+    .popover-container:hover {
+      transform: translate(-100%, -50%) scale(1);
+    }
+  }
+
+  .card {
+    @include shadow-variant(.2rem);
+    border: 0;
+  }
+}

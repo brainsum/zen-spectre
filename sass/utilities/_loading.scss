@@ -1,0 +1,51 @@
+/**
+ * @file
+ * Spectre Loading
+ *
+ * Loading indicator is used for loading or updating. Also, you can add the
+ * loading class to buttons for loading status.Loading indicator is used for
+ * loading or updating. Also, you can add the loading class to buttons for
+ * loading status.
+ *
+ * Add the loading-lg class for large size.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#loading
+ */
+
+
+// Loading
+.loading {
+  color: transparent !important;
+  min-height: $unit-4;
+  pointer-events: none;
+  position: relative;
+
+  &::after {
+    animation: loading 500ms infinite linear;
+    border: $border-width-lg solid $primary-color;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: $unit-4;
+    left: 50%;
+    margin-left: -$unit-2;
+    margin-top: -$unit-2;
+    position: absolute;
+    top: 50%;
+    width: $unit-4;
+    z-index: $zindex-0;
+  }
+
+  &.loading-lg {
+    min-height: $unit-10;
+
+    &::after {
+      height: $unit-8;
+      margin-left: -$unit-4;
+      margin-top: -$unit-4;
+      width: $unit-8;
+    }
+  }
+}

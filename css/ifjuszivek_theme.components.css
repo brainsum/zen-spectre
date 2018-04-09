@@ -1,0 +1,5264 @@
+@charset "UTF-8";
+/*
+ * @file
+ * Components
+ * Discrete, reusable UI elements.
+ * Import all custom components from ./components/ subdirectory
+ * Turn here on only what you actually need.
+ */
+/*
+ * @file
+ * Sass Index file
+ *
+ * The main importer and orrganizer sass file.
+ */
+/*
+ * @file
+ ***** VARIABLES *****
+ */
+/*
+** SPECTRE.CSS VARIABLES **
+*/
+/*
+ * @file
+ * Spectre Avatar mixin
+ */
+/*
+ * @file
+ * Spectre Button mixins
+ */
+/*
+ * @file
+ * Zen's clearfix()
+ *
+ * Allows the bottom of an element to extend to the bottom of all floated
+ * children elements. @see http://nicolasgallagher.com/micro-clearfix-hack/
+ *
+ * We use the micro-clearfix, optimized for use in `@extend` where fewer `&` is
+ * better.
+ */
+/*
+ * @file
+ * Spectre color mixins
+ */
+/*
+ * @file
+ * Spectre Label mixin
+ */
+/*
+ * @file
+ * Spectre Position mixins
+ */
+/*
+ * @file
+ * Spectre Shadow mixins
+ */
+/*
+ * @file
+ * Spectre Text ellipsis mixin
+ */
+/*
+ * @file
+ * Spectre Toast mixin
+ */
+/*
+ * @file
+ * Spectre Transition mixins
+ */
+/*
+ * @file
+ * visually-hidden()
+ * Make an element visually hidden, but accessible to screen readers, etc.
+ *
+ * sass-lint:disable no-important
+ *
+ * @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+/*
+ * visually-hidden--off()
+ *
+ * Turns off the visually-hidden effect.
+ */
+/*
+ * visually-hidden--focusable()
+ *
+ * Makes an element visually hidden by default, but visible when receiving
+ * focus.
+ */
+/*
+ * @file
+ * image-url()
+ *
+ * If you include your images next to your component Sass files, you need to
+ * specify a url() to point from the generated CSS to the Sass source like this:
+ *
+ * ```css
+ * content: url(../sass/components/is-quite/long.svg);
+ * ```
+ *
+ * With the `image-url()` function the path to all your components is assumed to
+ * start with `../sass/components/` and you just need to give it the last, short
+ * bit of the path in your Sass code like this:
+ *
+ * ```scss
+ * content: image-url(is-quite/short.svg);
+ * ```
+ *
+ * If you want to point at an image that is not in the components sub-directory
+ * of your sass directory, you can override the default $subdirectory by
+ * passing it in as the first parameter of `image-url()` like this:
+ *
+ * ```scss
+ * content: image-url(base, grouping/blockquote.svg);
+ * ```
+ *
+ * which would output `url(../sass/base/grouping/blockquote.svg)`.
+ *
+ * $subdirectory   = $image-url-subdirectory - Optional. The relative path from
+ *                  the root of your Sass source to the sub-directory where
+ *                  components usually lie.
+ * $path           - Required. The path to the image relative to the
+ *                  `$subdirectory`.
+ * $path-to-source = $image-url-path-to-source - Optional. The relative path
+ *                  from the css build directory to the sass source directory.
+ */
+/*
+ * @file
+ * Spectre Animations
+ */
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-1.6rem);
+    transform: translateY(-1.6rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-1.6rem);
+    transform: translateY(-1.6rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*
+ * @file
+ * Drupal's Clearfix
+ *
+ * Allows the bottom of an element to extend to the bottom of all floated child
+ * elements.
+ *
+ * @see http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.clearfix::before,
+.header::before {
+  display: table;
+  content: "";
+}
+
+.clearfix::after,
+.header::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+/*
+ * @file
+ * Spectre Colors
+ *
+ * Color utilities are used for changing colors for text, link and background.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#colors
+ */
+.text-primary {
+  color: #5755d9;
+}
+
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #4240d4;
+}
+
+.text-secondary {
+  color: #e5e5f9;
+}
+
+a.text-secondary:focus,
+a.text-secondary:hover {
+  color: #d1d0f4;
+}
+
+.text-gray {
+  color: #acb3c2;
+}
+
+a.text-gray:focus,
+a.text-gray:hover {
+  color: #9ea6b7;
+}
+
+.text-light {
+  color: #fff;
+}
+
+a.text-light:focus,
+a.text-light:hover {
+  color: #f2f2f2;
+}
+
+.text-success {
+  color: #32b643;
+}
+
+a.text-success:focus,
+a.text-success:hover {
+  color: #2da23c;
+}
+
+.text-warning {
+  color: #ffb700;
+}
+
+a.text-warning:focus,
+a.text-warning:hover {
+  color: #e6a500;
+}
+
+.text-error {
+  color: #e85600;
+}
+
+a.text-error:focus,
+a.text-error:hover {
+  color: #cf4d00;
+}
+
+.bg-primary {
+  color: #fff;
+  background: #5755d9;
+}
+
+.bg-secondary {
+  background: #f1f1fc;
+}
+
+.bg-dark {
+  color: #fff;
+  background: #454d5d;
+}
+
+.bg-gray {
+  background: #f8f9fa;
+}
+
+.bg-success {
+  color: #fff;
+  background: #32b643;
+}
+
+.bg-warning {
+  color: #fff;
+  background: #ffb700;
+}
+
+.bg-error {
+  color: #fff;
+  background: #e85600;
+}
+
+/*
+ * @file
+ * Spectre Cursor utilities
+ *
+ * Cursor utilities specify which mouse cursor to display when mouseover.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#cursors
+ */
+.c-hand {
+  cursor: pointer;
+}
+
+.c-move {
+  cursor: move;
+}
+
+.c-zoom-in {
+  cursor: zoom-in;
+}
+
+.c-zoom-out {
+  cursor: zoom-out;
+}
+
+.c-not-allowed {
+  cursor: not-allowed;
+}
+
+.c-auto {
+  cursor: auto;
+}
+
+/*
+ * @file
+ * Spectre Display utilities
+ *
+ * Display utilities are used for display and hidden things.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#display
+ */
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: flex;
+}
+
+.d-inline-flex {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+
+.d-none,
+.d-hide {
+  display: none !important;
+}
+
+.d-visible {
+  visibility: visible;
+}
+
+.d-invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  color: transparent;
+  border: 0;
+  background: transparent;
+  text-shadow: none;
+  font-size: 0;
+  line-height: 0;
+}
+
+.text-assistive {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+/*
+ * @file
+ * Spectre Divider
+ *
+ * A Divider is used for separating elements.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#divider
+ */
+.divider,
+.divider-vert {
+  position: relative;
+  display: block;
+}
+
+.divider[data-content]::after,
+.divider-vert[data-content]::after {
+  display: inline-block;
+  padding: 0 0.4rem;
+  content: attr(data-content);
+  -webkit-transform: translateY(-0.65rem);
+  -ms-transform: translateY(-0.65rem);
+  transform: translateY(-0.65rem);
+  color: #acb3c2;
+  background: #fff;
+  font-size: 0.7rem;
+}
+
+.divider {
+  height: 0.05rem;
+  margin: 0.4rem 0;
+  border-top: 0.05rem solid #e7e9ed;
+}
+
+.divider[data-content] {
+  margin: 0.8rem 0;
+}
+
+.divider-vert {
+  display: block;
+  padding: 0.8rem;
+}
+
+.divider-vert::before {
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 50%;
+  display: block;
+  content: " ";
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-left: 0.05rem solid #e7e9ed;
+}
+
+.divider-vert[data-content]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.2rem 0;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/*
+ * @file
+ * Spectre Loading
+ *
+ * Loading indicator is used for loading or updating. Also, you can add the
+ * loading class to buttons for loading status.Loading indicator is used for
+ * loading or updating. Also, you can add the loading class to buttons for
+ * loading status.
+ *
+ * Add the loading-lg class for large size.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#loading
+ */
+.loading {
+  position: relative;
+  min-height: 0.8rem;
+  pointer-events: none;
+  color: transparent !important;
+}
+
+.loading::after {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: -0.4rem;
+  margin-left: -0.4rem;
+  content: "";
+  -webkit-animation: loading 500ms infinite linear;
+  animation: loading 500ms infinite linear;
+  border: 0.1rem solid #5755d9;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.loading.loading-lg {
+  min-height: 2rem;
+}
+
+.loading.loading-lg::after {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: -0.8rem;
+  margin-left: -0.8rem;
+}
+
+/*
+ * @file
+ * Spectre Position utilities
+ *
+ * Position utilities are used for useful layout and position things,
+ * including clearfix, float, position and margin/padding utilities.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#position
+ */
+.clearfix::before {
+  display: table;
+  content: "";
+}
+
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.centered {
+  display: block;
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.flex-centered {
+  display: -webkit-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.ml-0 {
+  margin-left: 0;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mx-0 {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.m-1 {
+  margin: 0.2rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.2rem;
+}
+
+.ml-1 {
+  margin-left: 0.2rem;
+}
+
+.mr-1 {
+  margin-right: 0.2rem;
+}
+
+.mt-1 {
+  margin-top: 0.2rem;
+}
+
+.mx-1 {
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+}
+
+.my-1 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.m-2 {
+  margin: 0.4rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.4rem;
+}
+
+.ml-2 {
+  margin-left: 0.4rem;
+}
+
+.mr-2 {
+  margin-right: 0.4rem;
+}
+
+.mt-2 {
+  margin-top: 0.4rem;
+}
+
+.mx-2 {
+  margin-right: 0.4rem;
+  margin-left: 0.4rem;
+}
+
+.my-2 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+
+.pr-0 {
+  padding-right: 0;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.px-0 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.p-1 {
+  padding: 0.2rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.2rem;
+}
+
+.pl-1 {
+  padding-left: 0.2rem;
+}
+
+.pr-1 {
+  padding-right: 0.2rem;
+}
+
+.pt-1 {
+  padding-top: 0.2rem;
+}
+
+.px-1 {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+}
+
+.py-1 {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.p-2 {
+  padding: 0.4rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.4rem;
+}
+
+.pl-2 {
+  padding-left: 0.4rem;
+}
+
+.pr-2 {
+  padding-right: 0.4rem;
+}
+
+.pt-2 {
+  padding-top: 0.4rem;
+}
+
+.px-2 {
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+}
+
+.py-2 {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+/*
+ * @file
+ * Spectre Shape utilities
+ *
+ * Shape utilities are used for change element shapes.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#shapes
+ */
+.rounded {
+  border-radius: 0.1rem;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+/*
+ * @file
+ * Spectre Text utilities
+ *
+ * Text utilities are used for text alignment, styles and overflow things.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#text
+ */
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-normal {
+  font-weight: normal;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-large {
+  font-size: 1.2em;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-clip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+
+.text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  -ms-hyphens: auto;
+}
+
+/*
+ * @file
+ * Drupal's Collapsible fieldset
+ *
+ * Fieldsets with optional entry fields can be hidden with collapsed fieldsets.
+ * .is-collapsed - The collapsed fieldset.
+ */
+.collapsible-fieldset,
+.collapsible {
+  position: relative;
+}
+
+.collapsible-fieldset__legend,
+.collapsible .fieldset-legend {
+  display: block;
+  padding-left: 15px;
+  background-image: url(../sass/forms/collapsible-fieldset/expanded.svg);
+  background-repeat: no-repeat;
+  background-position: 4px 50%;
+}
+
+.collapsible-fieldset__summary,
+.collapsible .fieldset-legend .summary {
+  margin-left: 0.5em;
+  color: #f1f1fc;
+  font-size: 0.9em;
+}
+
+.collapsible-fieldset.is-collapsed,
+.collapsible-fieldset--is-collapsed,
+.is-collapsed.collapsible,
+.collapsible.collapsed {
+  height: 1em;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+}
+
+.collapsible-fieldset.is-collapsed .collapsible-fieldset__wrapper,
+.collapsible-fieldset--is-collapsed__wrapper,
+.is-collapsed.collapsible .collapsible-fieldset__wrapper,
+.collapsible.collapsed .fieldset-wrapper {
+  display: none;
+}
+
+.collapsible-fieldset.is-collapsed .collapsible-fieldset__legend,
+.collapsible-fieldset--is-collapsed__legend,
+.is-collapsed.collapsible .collapsible-fieldset__legend,
+.collapsible.collapsed .fieldset-legend,
+.collapsible-fieldset.is-collapsed .collapsible .fieldset-legend,
+.collapsible .collapsible-fieldset.is-collapsed .fieldset-legend,
+.is-collapsed.collapsible .fieldset-legend {
+  background-image: url(../sass/forms/collapsible-fieldset/collapsed.svg);
+  background-position: 4px 50%;
+}
+
+/*
+ * @file
+ * Drupal's Form item
+ *
+ * Wrapper for a form element (or group of form elements) and its label.
+ */
+.form-item {
+  margin: 1rem 0;
+}
+
+.form-item__required,
+.form-required {
+  color: #e85600;
+}
+
+.form-item__description,
+.form-item .description {
+  margin-top: 0.2rem;
+  color: #acb3c2;
+  font-size: 0.7rem;
+}
+
+.form-item--is-error__widget,
+.form-item.is-error input,
+.form-item.is-error textarea,
+.form-item.is-error select,
+.form-item--is-error input,
+.form-item--is-error textarea,
+.form-item--is-error select,
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border-color: #e85600;
+}
+
+.form-item--is-error__widget:focus,
+.form-item.is-error input:focus,
+.form-item.is-error textarea:focus,
+.form-item.is-error select:focus,
+.form-item--is-error input:focus,
+.form-item--is-error textarea:focus,
+.form-item--is-error select:focus,
+.form-item input.error:focus,
+.form-item textarea.error:focus,
+.form-item select.error:focus {
+  box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+}
+
+.form-item--inline div,
+.form-item--inline label {
+  display: inline;
+}
+
+.form-item--inline__exception,
+.container-inline .fieldset-wrapper {
+  display: block;
+}
+
+.form-item--tight,
+.form-item--radio,
+.form-type-radio,
+.form-type-checkbox,
+.form-type-switch,
+.password-parent,
+.confirm-parent,
+table .form-item {
+  margin: 0;
+}
+
+.form-item--radio .form-item__label,
+.form-item--radio__label,
+.form-type-radio .form-item__label,
+.form-type-checkbox .form-item__label,
+.form-type-switch .form-item__label,
+label.option {
+  display: inline;
+  font-weight: normal;
+}
+
+.form-item--radio .form-item__description,
+.form-item--radio__description,
+.form-type-radio .form-item__description,
+.form-type-checkbox .form-item__description,
+.form-type-switch .form-item__description,
+.form-type-radio .description,
+.form-type-checkbox .description,
+.form-type-switch .description,
+.form-item--radio .form-item .description,
+.form-item .form-item--radio .description,
+.form-type-radio .form-item .description,
+.form-item .form-type-radio .description,
+.form-type-checkbox .form-item .description,
+.form-item
+.form-type-checkbox .description,
+.form-type-switch .form-item .description,
+.form-item
+.form-type-switch .description {
+  margin-left: 1.4em;
+}
+
+.form-item.is-error .form-item__widget,
+.form-item--is-error__widget,
+.form-item.is-error input,
+.form-item.is-error textarea,
+.form-item.is-error select,
+.form-item--is-error input,
+.form-item--is-error textarea,
+.form-item--is-error select,
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #e85600;
+}
+
+.form-group:not(:last-child) {
+  margin-bottom: 0.4rem;
+}
+
+.form-submit {
+  margin: 1rem 0;
+}
+
+.form-type-textfield:not(:placeholder-shown):invalid {
+  border-color: #e85600;
+}
+
+.form-type-textfield:not(:placeholder-shown):invalid:focus {
+  box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+}
+
+.form-type-radio,
+.form-type-checkbox,
+.form-type-switch {
+  position: relative;
+  display: inline-block;
+  min-height: 1.2rem;
+  margin: 0.2rem 0;
+  padding: 0.2rem 0.4rem 0.2rem 1.2rem;
+  line-height: 1rem;
+}
+
+.form-type-radio label,
+.form-type-checkbox label,
+.form-type-switch label {
+  padding: 0;
+}
+
+.form-type-radio input,
+.form-type-checkbox input,
+.form-type-switch input {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.form-type-radio input:focus + .form-icon,
+.form-type-checkbox input:focus + .form-icon,
+.form-type-switch input:focus + .form-icon {
+  border-color: #5755d9;
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+
+.form-type-radio input:checked + .form-icon,
+.form-type-checkbox input:checked + .form-icon,
+.form-type-switch input:checked + .form-icon {
+  border-color: #5755d9;
+  background: #5755d9;
+}
+
+.form-type-radio input:active + .form-icon,
+.form-type-checkbox input:active + .form-icon,
+.form-type-switch input:active + .form-icon {
+  background: #f0f1f4;
+}
+
+.form-type-radio .form-icon,
+.form-type-checkbox .form-icon,
+.form-type-switch .form-icon {
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 0.05rem solid #caced7;
+  background: #fff;
+}
+
+.form-type-radio .form-icon {
+  border-radius: 50%;
+}
+
+.form-type-radio input:checked + .form-icon::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  content: "";
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.form-type-checkbox .form-icon {
+  border-radius: 0.1rem;
+}
+
+.form-type-checkbox input:checked + .form-icon::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 12px;
+  margin-top: -8px;
+  margin-left: -4px;
+  content: "";
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: 0.1rem solid #fff;
+  border-top-width: 0;
+  border-left-width: 0;
+  background-clip: padding-box;
+}
+
+.form-type-checkbox input:indeterminate + .form-icon {
+  border-color: #5755d9;
+  background: #5755d9;
+}
+
+.form-type-checkbox input:indeterminate + .form-icon::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  margin-top: -1px;
+  margin-left: -5px;
+  content: "";
+  background: #fff;
+}
+
+.form-type-switch {
+  padding-left: 2rem;
+}
+
+.form-type-switch .form-icon {
+  top: 0.25rem;
+  left: 0;
+  width: 1.6rem;
+  height: 0.9rem;
+  border-radius: 0.45rem;
+  background: #e7e9ed;
+  background-clip: padding-box;
+}
+
+.form-type-switch .form-icon::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  content: "";
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.form-type-switch input:checked + .form-icon::before {
+  left: 14px;
+}
+
+.form-type-switch input:active + .form-icon::before {
+  background: #f8f9fa;
+}
+
+.container-inline {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+
+.container-inline label {
+  padding: 0.35rem 0.4rem;
+  white-space: nowrap;
+  border: 0.05rem solid #caced7;
+  border-radius: 0.1rem;
+  background: #f8f9fa;
+  line-height: 1rem;
+}
+
+.container-inline .form-item {
+  z-index: 1;
+  flex: 1 1 auto;
+
+  -webkit-box-flex: 1;
+}
+
+.container-inline .form-item:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.container-inline .form-item:not(:first-child):not(:last-child) {
+  margin-left: -0.05rem;
+  border-radius: 0;
+}
+
+.container-inline .form-item:last-child:not(:first-child) {
+  margin-left: -0.05rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.container-inline .form-item:focus {
+  z-index: 2;
+}
+
+.container-inline select {
+  width: auto;
+}
+
+.has-icon-left,
+.has-icon-right {
+  position: relative;
+}
+
+.has-icon-left .form-icon,
+.has-icon-right .form-icon {
+  position: absolute;
+  top: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0 0.35rem;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.has-icon-left .form-icon {
+  left: 0.05rem;
+}
+
+.has-icon-left .form-input {
+  padding-left: 1.5rem;
+}
+
+.has-icon-right .form-icon {
+  right: 0.05rem;
+}
+
+.has-icon-right .form-input {
+  padding-right: 1.5rem;
+}
+
+/*
+ * @file
+ * Drupal admin tables
+ *
+ * Complex forms that appear in html `<table>` elements.
+ *
+ * If your custom theme isn't used for Drupal's admin pages, you can safely
+ * delete this component to save file weight in the generated CSS.
+ */
+.form-table__sticky-header,
+.sticky-header {
+  position: fixed;
+  visibility: hidden;
+  margin-top: 0;
+  background-color: #fff;
+}
+
+.form-table__sticky-header.is-sticky,
+.form-table__sticky-header--is-sticky,
+.is-sticky.sticky-header {
+  visibility: visible;
+}
+
+.form-table__header,
+.form-table th,
+form table th {
+  padding-right: 1em;
+  text-align: left;
+  border-bottom: 3px solid #e7e9ed;
+}
+
+.form-table__body,
+.form-table tbody,
+form table tbody {
+  border-top: 1px solid #e7e9ed;
+}
+
+.form-table__row,
+.form-table tbody tr,
+form table tbody tr {
+  padding: 0.1em 0.6em;
+  border-bottom: 1px solid #e7e9ed;
+  background-color: #f0f1f4;
+}
+
+.form-table__row:nth-of-type(odd),
+.form-table tbody tr:nth-of-type(odd),
+form table tbody tr:nth-of-type(odd) {
+  background: #f8f9fa;
+}
+
+.form-table__row.is-active,
+.form-table__row--is-active,
+.form-table tbody tr.is-active,
+form table tbody tr.is-active,
+td.active {
+  background: #f0f1f4;
+}
+
+.form-table__row.is-disabled,
+.form-table__row--is-disabled,
+.form-table tbody tr.is-disabled,
+form table tbody tr.is-disabled,
+td.menu-disabled {
+  background: #f0f1f4;
+}
+
+.form-table__row.is-selected,
+.form-table__row--is-selected,
+.form-table tbody tr.is-selected,
+form table tbody tr.is-selected,
+tr.selected td {
+  background: #f0f1f4;
+}
+
+.form-table__list,
+.form-table ul,
+form table ul {
+  margin: 0;
+}
+
+.form-table__narrow-column,
+.form-table th.form-table__narrow-column,
+form table th.form-table__narrow-column,
+td .checkbox,
+th .checkbox {
+  width: -moz-min-content;
+  width: -webkit-min-content;
+  text-align: center;
+}
+
+/*
+ * @file
+ * Spectre Labels
+ *
+ * Labels are formatted text tags for highlighted, informative information.
+ *
+ * Add the label class to <span> or <small> elements. You can add another class
+ * label-primary, label-secondary, label-success, label-warning and label-error
+ * for colored labels.
+ *
+ * @see https://picturepan2.github.io/spectre/elements.html#labels
+ */
+.label {
+  display: inline-block;
+  padding: 0.1rem 0.15rem;
+  color: #5b657a;
+  border-radius: 0.1rem;
+  background: #f0f1f4;
+  line-height: 1.2;
+}
+
+.label.label-rounded {
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+  border-radius: 5rem;
+}
+
+.label.label-primary {
+  color: #fff;
+  background: #5755d9;
+}
+
+.label.label-secondary {
+  color: #5755d9;
+  background: #f1f1fc;
+}
+
+.label.label-success {
+  color: #fff;
+  background: #32b643;
+}
+
+.label.label-warning {
+  color: #fff;
+  background: #ffb700;
+}
+
+.label.label-error {
+  color: #fff;
+  background: #e85600;
+}
+
+/*
+ * @file
+ * Spectre Media + Zen's Responsive media
+ *
+ * @see https://picturepan2.github.io/spectre/elements.html#media
+  */
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.img-fit-cover {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.img-fit-contain {
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+/*
+ * Responsive video
+ *
+ * Using a wrapper div, embedded videos can be made responsive so that their
+ * intrinsic aspect ratio is preserved at any screen width. The
+ * `responsive-video__embed` class is optional if the embed is an `iframe`.
+ */
+.responsive-video,
+.media-youtube-video,
+.media-vimeo-preview-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+}
+
+.responsive-video::before,
+.media-youtube-video::before,
+.media-vimeo-preview-wrapper::before {
+  display: block;
+  padding-bottom: 56.25%;
+  content: "";
+}
+
+.responsive-video iframe,
+.responsive-video object,
+.responsive-video embed,
+.responsive-video__embed,
+.media-youtube-video iframe,
+.media-vimeo-preview-wrapper iframe,
+.media-youtube-video object,
+.media-vimeo-preview-wrapper object,
+.media-youtube-video embed,
+.media-vimeo-preview-wrapper embed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.responsive-video--4-3::before {
+  padding-bottom: 75%;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+video::before {
+  content: none;
+}
+
+figure {
+  margin: 0 0 0.4rem;
+}
+
+figure figcaption {
+  margin-top: 0.4rem;
+  color: #667189;
+}
+
+/*
+ * @file
+ * Drupal's Resizable textarea
+ *
+ * A textarea that can be resized with a "grippie" widget.
+ */
+.resizable-textarea,
+.resizable-textarea textarea {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.resizable-textarea__grippie,
+.resizable-textarea .grippie {
+  overflow: hidden;
+  height: 9px;
+  cursor: s-resize;
+  border: 1px solid #caced7;
+  border-top-width: 0;
+  background: url(../sass/forms/resizable-textarea/grippie.png) no-repeat center 2px #454d5d;
+}
+
+/*
+ * @file
+ * Drupal's Table drag
+ *
+ * Drag and drop rows inside a form.
+ *
+ * If your custom theme isn"t used for Drupal"s admin pages, you can safely
+ * delete this component to save file weight in the generated CSS.
+ */
+.table-drag__wrapper,
+body.drag {
+  cursor: move;
+}
+
+.table-drag__item,
+tr.drag {
+  background-color: #f1f1fc;
+}
+
+.table-drag__item-previous,
+tr.drag-previous {
+  background-color: #e5e5f9;
+}
+
+.table-drag__handle,
+.tabledrag-handle {
+  float: left;
+  overflow: hidden;
+  height: 1.7em;
+  margin-left: -1em;
+  cursor: move;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.table-drag__handle:focus,
+.table-drag__handle:hover,
+.tabledrag-handle:focus,
+.tabledrag-handle:hover {
+  text-decoration: none;
+}
+
+.table-drag__handle-icon,
+.tabledrag-handle .handle {
+  box-sizing: content-box;
+  width: 13px;
+  height: 13px;
+  margin: -0.4em 0.5em;
+  padding: 0.42em 0.5em;
+  background: url(../sass/forms/table-drag/handle-icon.png) no-repeat 6px 9px;
+}
+
+.table-drag__handle.is-hover .table-drag__handle-icon,
+.table-drag__handle-icon--is-hover,
+.is-hover.tabledrag-handle .table-drag__handle-icon,
+.tabledrag-handle-hover .handle,
+.table-drag__handle.is-hover .tabledrag-handle .handle,
+.tabledrag-handle .table-drag__handle.is-hover .handle,
+.is-hover.tabledrag-handle .handle {
+  background-position: 6px -11px;
+}
+
+.table-drag__toggle-weight-wrapper,
+.tabledrag-toggle-weight-wrapper {
+  text-align: right;
+}
+
+.table-drag__toggle-weight,
+.tabledrag-toggle-weight {
+  font-size: 0.9em;
+}
+
+.table-drag__indentation,
+.indentation {
+  float: left;
+  width: 20px;
+  height: 1.7em;
+  margin: -0.4em 0.2em -0.4em -0.4em;
+  padding: 0.42em 0 0.42em 0.6em;
+}
+
+.table-drag__tree-child,
+.table-drag__tree-child-last,
+.tree-child-last,
+.table-drag__tree-child-horizontal,
+.tree-child-horizontal,
+.tree-child {
+  background: url(../sass/forms/table-drag/tree-child.png) no-repeat 11px center;
+}
+
+.table-drag__tree-child-last,
+.tree-child-last {
+  background-image: url(../sass/forms/table-drag/tree-child-last.png);
+}
+
+.table-drag__tree-child-horizontal,
+.tree-child-horizontal {
+  background-position: -11px center;
+}
+
+/*
+ * @file
+ * Zen Branding header
+ */
+/*
+ * @file
+ * Headings
+ *
+ * All HTML headings, `<h1>` through `<h6>`, are available. `%h1` through `%h6`
+ * classes are also available, for when you want to match the font styling of a
+ * heading but still want your text to be displayed inline.
+ */
+/*
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 500;
+}
+
+h1,
+.header__site-name {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+.header__logo {
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.header__logo-image {
+  vertical-align: bottom;
+}
+
+.header__name-and-slogan {
+  float: left;
+}
+
+.header__site-name {
+  margin: 0;
+}
+
+.header__site-link:link,
+.header__site-link:visited {
+  text-decoration: none;
+  color: #5755d9;
+}
+
+.header__site-link:hover,
+.header__site-link:focus {
+  text-decoration: underline;
+}
+
+.header__site-slogan {
+  margin: 0;
+}
+
+.header__secondary-menu {
+  float: right;
+}
+
+.header__region {
+  clear: both;
+}
+
+/*
+ * @file
+ * Drupal's Navbar
+ *
+ * A simple method to get navigation links to appear in one line.
+ */
+/*
+ * @file
+ * Drupal's Visually hidden classes
+ *
+ * Make an element visually hidden, but accessible to screen readers, etc.
+ *
+ * .visually-hidden--off        - Turns off the visually-hidden effect.
+ * .visually-hidden--focusable  - Makes an element visually hidden by default,
+ *                                but visible when receiving focus.
+ * .visually-hidden--focusable:focus  - A focused, and visible, element.
+ */
+.visually-hidden,
+.element-invisible,
+.element-focusable,
+.main-navigation .block-menu .block__title,
+.main-navigation .block-menu-block .block__title,
+.breadcrumb__title {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
+.visually-hidden--off,
+.visually-hidden--focusable:active,
+.visually-hidden--focusable:focus,
+.element-focusable:active,
+.element-focusable:focus {
+  position: static !important;
+  overflow: visible;
+  clip: auto;
+  width: auto;
+  height: auto;
+}
+
+.navbar,
+.main-navigation .links,
+.main-navigation .menu {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  -webkit-box-align: stretch;
+  -webkit-box-pack: justify;
+}
+
+.navbar .navbar-section,
+.main-navigation .links .navbar-section,
+.main-navigation .menu .navbar-section {
+  display: -webkit-box;
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+
+  -webkit-box-align: center;
+  -webkit-box-flex: 1;
+}
+
+.navbar .navbar-section:not(:first-child):last-child,
+.main-navigation .links .navbar-section:not(:first-child):last-child,
+.main-navigation .menu .navbar-section:not(:first-child):last-child {
+  justify-content: flex-end;
+
+  -webkit-box-pack: end;
+}
+
+.navbar .navbar-center,
+.main-navigation .links .navbar-center,
+.main-navigation .menu .navbar-center {
+  display: -webkit-box;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+
+  -webkit-box-align: center;
+  -webkit-box-flex: 0;
+}
+
+.navbar .navbar-brand,
+.main-navigation .links .navbar-brand,
+.main-navigation .menu .navbar-brand {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navbar__item,
+.navbar li,
+.main-navigation .links li,
+.main-navigation .menu li {
+  padding: 0 10px 0 0;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+/*
+ * @file
+ * Spectre Accordions
+ *
+ * Accordions are used to toggle sections of content.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#accordions
+ */
+.accordion input:checked ~ .accordion-header .icon,
+.accordion[open] .accordion-header .icon {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.accordion input:checked ~ .accordion-body,
+.accordion[open] .accordion-body {
+  max-height: 50rem;
+}
+
+.accordion .accordion-header {
+  display: block;
+  padding: 0.2rem 0.4rem;
+}
+
+.accordion .accordion-header .icon {
+  transition: all 0.2s ease;
+}
+
+.accordion .accordion-body {
+  overflow: hidden;
+  max-height: 0;
+  margin-bottom: 0.4rem;
+  transition: max-height 0.2s ease;
+}
+
+summary.accordion-header::-webkit-details-marker {
+  display: none;
+}
+
+/*
+ * @file
+ * Drupal's Autocomplete field + Spectre Autocomplete
+ *
+ * As the user starts to type a value, a selection list appears below the form
+ * item allowing them to choose an option.
+ *
+ * .is-throbbing - Waiting for search result.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#autocomplete
+ */
+.autocomplete,
+.form-autocomplete {
+  position: relative;
+  min-height: 0.8rem;
+  background-image: url(../sass/components/autocomplete/throbber-inactive.png);
+  background-repeat: no-repeat;
+  background-position: 100% center;
+  /*&::after {
+   border: $border-width-lg solid $primary-color;
+   border-radius: 50%;
+   border-right-color: transparent;
+   border-top-color: transparent;
+   content: " ";
+   display: block;
+   height: $unit-4;
+   left: 50%;
+   margin-left: -$unit-2;
+   margin-top: -$unit-2;
+   position: absolute;
+   top: 50%;
+   width: $unit-4;
+   z-index: $zindex-0;
+  }*/
+}
+
+.autocomplete__list-wrapper,
+#autocomplete {
+  position: absolute;
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+.autocomplete__list,
+#autocomplete ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+.autocomplete__list-item,
+#autocomplete li {
+  cursor: default;
+  white-space: pre;
+  color: #fefeff;
+  background: #5755d9;
+}
+
+.autocomplete__list-item.is-selected,
+.autocomplete__list-item--is-selected,
+#autocomplete li.is-selected,
+#autocomplete .selected {
+  border-color: #5755d9;
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+
+.autocomplete.is-throbbing::after,
+.autocomplete--is-throbbing::after,
+.is-throbbing.form-autocomplete::after,
+.form-autocomplete.throbbing::after {
+  -webkit-animation: loading 500ms infinite linear;
+  animation: loading 500ms infinite linear;
+  border: 0.1rem solid #5755d9;
+}
+
+/*
+ * @file
+ * Avatars
+ *
+ * Avatars are user profile pictures.
+ *
+ * Add the avatar class to <img> element. There are 4 additional sizes
+ * available, including avatar-xl (64px), avatar-lg (48px), avatar-sm (24px),
+ * and avatar-xs (16px). By default, the avatar size is 32px.
+ *
+ * For users who don't have profile pictures, you may use their initials for
+ * avatars. Add the avatar class and avatar size class to <div> element.
+ * The data-initial attribute is the name appear inside the avatar.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#avatars
+ */
+.avatar {
+  position: relative;
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: #5755d9;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.avatar.avatar-xs {
+  width: 0.8rem;
+  height: 0.8rem;
+  font-size: 0.4rem;
+}
+
+.avatar.avatar-sm {
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.6rem;
+}
+
+.avatar.avatar-lg {
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 1.2rem;
+}
+
+.avatar.avatar-xl {
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 1.6rem;
+}
+
+.avatar img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.avatar .avatar-icon,
+.avatar .avatar-presence {
+  position: absolute;
+  z-index: 2;
+  right: 14.64%;
+  bottom: 14.64%;
+  width: 50%;
+  height: 50%;
+  padding: 0.1rem;
+  -webkit-transform: translate(50%, 50%);
+  -ms-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+  background: #fff;
+}
+
+.avatar .avatar-presence {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: #acb3c2;
+  box-shadow: 0 0 0 0.1rem #fff;
+}
+
+.avatar .avatar-presence.online {
+  background: #32b643;
+}
+
+.avatar .avatar-presence.busy {
+  background: #e85600;
+}
+
+.avatar .avatar-presence.away {
+  background: #ffb700;
+}
+
+.avatar[data-initial]::before {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  content: attr(data-initial);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: currentColor;
+}
+
+/*
+ * @file
+ * Spectre Badges
+ *
+ * Badges are often used as unread number indicators.
+ *
+ * Add the badge class to non self closing elements. And add the data-badge
+ * attribute to define the content of a badge. The badge will appear in the
+ * top-right direction of the element.
+ *
+ * If there is no data-badge or the attribute is not specified, the badge will
+ * appear as a dot.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#badges
+ */
+.badge {
+  position: relative;
+  white-space: nowrap;
+}
+
+.badge[data-badge]::after,
+.badge:not([data-badge])::after {
+  display: inline-block;
+  content: attr(data-badge);
+  -webkit-transform: translate(-0.1rem, -0.5rem);
+  -ms-transform: translate(-0.1rem, -0.5rem);
+  transform: translate(-0.1rem, -0.5rem);
+  color: #fff;
+  border-radius: 0.5rem;
+  background: #5755d9;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 0.1rem #fff;
+}
+
+.badge[data-badge]::after {
+  min-width: 0.9rem;
+  height: 0.9rem;
+  padding: 0.1rem 0.2rem;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.badge:not([data-badge])::after,
+.badge[data-badge=""]::after {
+  width: 6px;
+  min-width: 6px;
+  height: 6px;
+  padding: 0;
+}
+
+.badge.btn::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+
+.badge.avatar::after {
+  position: absolute;
+  z-index: 100;
+  top: 14.64%;
+  right: 14.64%;
+  -webkit-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+
+.badge.avatar-xs::after {
+  width: 0.4rem;
+  min-width: 0.4rem;
+  height: 0.4rem;
+  padding: 0;
+  content: "";
+}
+
+/*
+ * @file
+ * Box
+ *
+ * A simple box style.
+ *
+ * A Drupal block is often styled as a box. However, this design component is
+ * not applied to any blocks by default; it is used as an example of how to
+ * build and document a CSS component.
+ *
+ * "box" is the name of our component, so we define a `.box` class that we can
+ * apply to any HTML element that needs the box styling. We also provide a
+ * `%box` placeholder selector so that we can easily extend the basic box
+ * component with `@extend %box;`.
+ *
+ * Take a look at the source code for this component for more information about
+ * building a good component.
+ *
+ * :hover - The hover/focus styling.
+ * .box--highlight - The "highlight" box variant.
+ */
+.box {
+  margin-bottom: 1rem;
+  padding: 1em;
+  border: 5px solid #e7e9ed;
+  /* Sass compiles this to the selector: .box__title, %box__title {}
+   * The "__" (double underscore) is part of a BEM naming convention that
+   * indicates the "title" is an _element_ of (a piece of) the "box" component.
+   */
+  /*
+   * Sass compiles this nested ruleset's selector into:
+   * .box:focus, .box:hover, .box.is-focus, .box--is-focus,
+   * %box:focus, %box:hover, %box.is-focus, %box--is-focus {}
+   *
+   * The ".box--is-focus" class is a stray class we don't actually want, but we
+   * deal with it because we often want a placeholder selector like
+   * %box--is-focus in case we need to use @extends later.
+   *
+   * The ".is-" part of the class name is a Drupal 8 BEM naming convention that
+   * indicates the "focus" is a _state_ of the "box" component.
+   */
+  /*
+   * Sass compiles this to the selector: .box--highlight, %box--highlight {}
+   * The "--" (double dash) is part of a BEM naming convention that indicates
+   * the "highlight" is a _modifier_, creating a new variation of the standard
+   * "box" component.
+   */
+}
+
+.box__title {
+  margin: 0;
+}
+
+.box:focus,
+.box:hover,
+.box.is-focus,
+.box--is-focus {
+  border-color: #50596c;
+}
+
+.box--highlight {
+  border-color: #5755d9;
+}
+
+/*
+ * Drupal selectors.
+ *
+ * In this part of the file, we write some fugly selectors if we can't figure
+ * out how to insert the class we want (.box) into the Drupal theme system. Then
+ * we @extend from the fugly selector into the nicely-written component
+ * selector.
+ *
+ * You could create a theme hook suggestion and override the block.tpl.php just
+ * for the sidebar regions or write a HOOK_preprocess_block() function to check
+ * for the regions and insert the classes into the right variables, or, if you
+ * have no idea what I'm talking about, you could just use this fugly CSS
+ * selector:
+ *
+ * [class$="sidebar"] {
+ *   .block {
+ *     @extend %box;
+ *   }
+ *
+ *   .block__title {
+ *     @extend %box__title;
+ *   }
+ * }
+ */
+/*
+ * @file
+ * Zen's Breadcrumb navigation + Spectre Breadcrumbs
+ *
+ * Breadcrumbs are used as navigational hierarchies to indicate current location.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#breadcrumbs
+ */
+@media print {
+  .breadcrumb {
+    display: none;
+  }
+}
+
+.breadcrumb__list {
+  margin: 0.2rem 0;
+  padding: 0.2rem 0;
+  list-style: none;
+}
+
+.breadcrumb__item {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2rem 0;
+  color: #667189;
+}
+
+.breadcrumb__item:not(:last-child) {
+  margin-right: 0.4rem;
+}
+
+.breadcrumb__item:not(:last-child) a {
+  color: #667189;
+}
+
+.breadcrumb__separator {
+  padding-left: 0.4rem;
+  color: #e7e9ed;
+}
+
+/*
+ * @file
+ * Spectre's Calendars
+ *
+ * Calendars are designed for date or date range picker and events display. It is made with flex layout.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#calendars
+ */
+.calendar {
+  display: block;
+  min-width: 280px;
+  text-align: center;
+  border: 0.05rem solid #e7e9ed;
+  border-radius: 0.1rem;
+}
+
+.calendar .calendar-nav {
+  display: -webkit-box;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+  background: #f8f9fa;
+  font-size: 0.9rem;
+
+  -webkit-box-align: center;
+}
+
+.calendar .calendar-header,
+.calendar .calendar-body {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.4rem 0;
+
+  -webkit-box-pack: center;
+}
+
+.calendar .calendar-header .calendar-date,
+.calendar .calendar-body .calendar-date {
+  flex: 0 0 14.28%;
+  max-width: 14.28%;
+
+  -webkit-box-flex: 0;
+}
+
+.calendar .calendar-header {
+  color: #acb3c2;
+  border-bottom: 0.05rem solid #e7e9ed;
+  background: #f8f9fa;
+  font-size: 0.7rem;
+}
+
+.calendar .calendar-body {
+  color: #667189;
+}
+
+.calendar .calendar-date {
+  padding: 0.2rem;
+  border: 0;
+}
+
+.calendar .calendar-date .date-item {
+  position: relative;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #667189;
+  border: 0.05rem solid transparent;
+  border-radius: 50%;
+  outline: none;
+  background: transparent;
+  font-size: 0.7rem;
+  line-height: 1rem;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.calendar .calendar-date .date-item.date-today {
+  color: #5755d9;
+  border-color: #e5e5f9;
+}
+
+.calendar .calendar-date .date-item:focus {
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+
+.calendar .calendar-date .date-item:focus,
+.calendar .calendar-date .date-item:hover {
+  text-decoration: none;
+  color: #5755d9;
+  border-color: #e5e5f9;
+  background: #fefeff;
+}
+
+.calendar .calendar-date .date-item:active,
+.calendar .calendar-date .date-item.active {
+  color: #fff;
+  border-color: #3634d2;
+  background: #4b48d6;
+}
+
+.calendar .calendar-date .date-item.badge::after {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  -webkit-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+
+.calendar .calendar-date.disabled .date-item,
+.calendar .calendar-date.disabled .calendar-event,
+.calendar .calendar-date .date-item:disabled,
+.calendar .calendar-date .calendar-event:disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.calendar .calendar-range {
+  position: relative;
+}
+
+.calendar .calendar-range::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1.4rem;
+  content: "";
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: #f1f1fc;
+}
+
+.calendar .calendar-range.range-start::before {
+  left: 50%;
+}
+
+.calendar .calendar-range.range-end::before {
+  right: 50%;
+}
+
+.calendar .calendar-range .date-item {
+  color: #5755d9;
+}
+
+.calendar.calendar-lg .calendar-body {
+  padding: 0;
+}
+
+.calendar.calendar-lg .calendar-body .calendar-date {
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  height: 5.5rem;
+  padding: 0;
+  border-right: 0.05rem solid #e7e9ed;
+  border-bottom: 0.05rem solid #e7e9ed;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+}
+
+.calendar.calendar-lg .calendar-body .calendar-date:nth-child(7n) {
+  border-right: 0;
+}
+
+.calendar.calendar-lg .calendar-body .calendar-date:nth-last-child(-n+7) {
+  border-bottom: 0;
+}
+
+.calendar.calendar-lg .date-item {
+  align-self: flex-end;
+  height: 1.4rem;
+  margin-top: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+.calendar.calendar-lg .calendar-range::before {
+  top: 19px;
+}
+
+.calendar.calendar-lg .calendar-range.range-start::before {
+  left: auto;
+  width: 19px;
+}
+
+.calendar.calendar-lg .calendar-range.range-end::before {
+  right: 19px;
+}
+
+.calendar.calendar-lg .calendar-events {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 0.2rem;
+  line-height: 1;
+
+  -webkit-box-flex: 1;
+}
+
+.calendar.calendar-lg .calendar-event {
+  display: block;
+  overflow: hidden;
+  margin: 0.1rem auto;
+  padding: 3px 4px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 0.1rem;
+  font-size: 0.7rem;
+}
+
+/*
+ * @file
+ * Spectre Cards
+ *
+ * Cards are flexible content containers.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#cards
+ */
+.card {
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  border: 0.05rem solid #e7e9ed;
+  border-radius: 0.1rem;
+  background: #fff;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+}
+
+.card .card-header,
+.card .card-body,
+.card .card-footer {
+  padding: 0.8rem;
+  padding-bottom: 0;
+}
+
+.card .card-header:last-child,
+.card .card-body:last-child,
+.card .card-footer:last-child {
+  padding-bottom: 0.8rem;
+}
+
+.card .card-image {
+  padding-top: 0.8rem;
+}
+
+.card .card-image:first-child {
+  padding-top: 0;
+}
+
+.card .card-image:first-child img {
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+}
+
+.card .card-image:last-child img {
+  border-bottom-right-radius: 0.1rem;
+  border-bottom-left-radius: 0.1rem;
+}
+
+/*
+ * @file
+ * Spectre Carousels
+ *
+ * Carousels are slideshows for cycling images. It is built in pure CSS.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#carousels
+ */
+.carousel {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  background: #f8f9fa;
+}
+
+.carousel .carousel-container {
+  position: relative;
+  left: 0;
+  height: 100%;
+}
+
+.carousel .carousel-container::before {
+  display: block;
+  padding-bottom: 56.25%;
+  content: "";
+}
+
+.carousel .carousel-container .carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -webkit-animation: carousel-slideout 1s ease-in-out 1;
+  animation: carousel-slideout 1s ease-in-out 1;
+  opacity: 0;
+}
+
+.carousel .carousel-container .carousel-item:hover .item-prev,
+.carousel .carousel-container .carousel-item:hover .item-next {
+  opacity: 1;
+}
+
+.carousel .carousel-container .item-prev,
+.carousel .carousel-container .item-next {
+  position: absolute;
+  z-index: 200;
+  top: 50%;
+  transition: all 0.4s ease;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 0;
+  color: #e7e9ed;
+  border-color: rgba(231, 233, 237, 0.5);
+  background: rgba(231, 233, 237, 0.25);
+}
+
+.carousel .carousel-container .item-prev {
+  left: 1rem;
+}
+
+.carousel .carousel-container .item-next {
+  right: 1rem;
+}
+
+.carousel .carousel-locator:nth-of-type(1):checked ~ .carousel-container .carousel-item:nth-of-type(1),
+.carousel .carousel-locator:nth-of-type(2):checked ~ .carousel-container .carousel-item:nth-of-type(2),
+.carousel .carousel-locator:nth-of-type(3):checked ~ .carousel-container .carousel-item:nth-of-type(3),
+.carousel .carousel-locator:nth-of-type(4):checked ~ .carousel-container .carousel-item:nth-of-type(4) {
+  z-index: 100;
+  -webkit-animation: carousel-slidein 0.75s ease-in-out 1;
+  animation: carousel-slidein 0.75s ease-in-out 1;
+  opacity: 1;
+}
+
+.carousel .carousel-locator:nth-of-type(1):checked ~ .carousel-nav .nav-item:nth-of-type(1),
+.carousel .carousel-locator:nth-of-type(2):checked ~ .carousel-nav .nav-item:nth-of-type(2),
+.carousel .carousel-locator:nth-of-type(3):checked ~ .carousel-nav .nav-item:nth-of-type(3),
+.carousel .carousel-locator:nth-of-type(4):checked ~ .carousel-nav .nav-item:nth-of-type(4) {
+  color: #e7e9ed;
+}
+
+.carousel .carousel-nav {
+  position: absolute;
+  z-index: 200;
+  bottom: 0.4rem;
+  left: 50%;
+  display: -webkit-box;
+  display: flex;
+  justify-content: center;
+  width: 10rem;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  -webkit-box-pack: center;
+}
+
+.carousel .carousel-nav .nav-item {
+  position: relative;
+  display: block;
+  flex: 1 0 auto;
+  max-width: 2.5rem;
+  height: 1.6rem;
+  margin: 0.2rem;
+  color: rgba(231, 233, 237, 0.5);
+
+  -webkit-box-flex: 1;
+}
+
+.carousel .carousel-nav .nav-item::before {
+  position: absolute;
+  top: 0.5rem;
+  display: block;
+  width: 100%;
+  height: 0.1rem;
+  content: "";
+  background: currentColor;
+}
+
+@-webkit-keyframes carousel-slidein {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes carousel-slidein {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes carousel-slideout {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes carousel-slideout {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+/*
+ * @file
+ * Spectre Chips
+ *
+ * Chips are complex entities in small blocks.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#chips
+ */
+.chip {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  height: 1.2rem;
+  margin: 0.1rem;
+  padding: 0.2rem 0.4rem;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #667189;
+  border-radius: 5rem;
+  background: #f0f1f4;
+  font-size: 90%;
+  line-height: 0.8rem;
+
+  -webkit-box-align: center;
+}
+
+.chip.active {
+  color: #fff;
+  background: #5755d9;
+}
+
+.chip .avatar {
+  margin-right: 0.2rem;
+  margin-left: -0.4rem;
+}
+
+/*
+ * @file
+ * Spectre Comparison Sliders
+ *
+ * Comparison Sliders are sliders for comparing two images. It is built in pure
+ * CSS.
+ * @see http://codepen.io/solipsistacp/pen/Gpmaq
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#comparison
+ */
+.comparison-slider {
+  position: relative;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 50vh;
+}
+
+.comparison-slider .comparison-before,
+.comparison-slider .comparison-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+.comparison-slider .comparison-before img,
+.comparison-slider .comparison-after img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: left center;
+  object-position: left center;
+}
+
+.comparison-slider .comparison-before {
+  z-index: 1;
+  width: 100%;
+}
+
+.comparison-slider .comparison-before .comparison-label {
+  right: 0.8rem;
+}
+
+.comparison-slider .comparison-after {
+  z-index: 2;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.comparison-slider .comparison-after::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0.8rem;
+  left: 0;
+  height: 100%;
+  content: "";
+  cursor: default;
+  background: transparent;
+}
+
+.comparison-slider .comparison-after::after {
+  position: absolute;
+  top: 50%;
+  right: 0.4rem;
+  width: 3px;
+  height: 3px;
+  content: "";
+  -webkit-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  color: #fff;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 -5px, 0 5px;
+}
+
+.comparison-slider .comparison-after .comparison-label {
+  left: 0.8rem;
+}
+
+.comparison-slider .comparison-resizer {
+  position: relative;
+  top: 50%;
+  left: 0;
+  width: 0;
+  min-width: 0.8rem;
+  max-width: 100%;
+  height: 0.8rem;
+  resize: horizontal;
+  cursor: ew-resize;
+  -webkit-transform: translateY(-50%) scaleY(30);
+  -ms-transform: translateY(-50%) scaleY(30);
+  transform: translateY(-50%) scaleY(30);
+  -webkit-animation: first-run 1.5s 1 ease-in-out;
+  animation: first-run 1.5s 1 ease-in-out;
+  opacity: 0;
+  outline: none;
+}
+
+.comparison-slider .comparison-label {
+  position: absolute;
+  bottom: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #fff;
+  background: rgba(69, 77, 93, 0.5);
+}
+
+@-webkit-keyframes first-run {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 2.4rem;
+  }
+  50% {
+    width: 0.8rem;
+  }
+  75% {
+    width: 1.2rem;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes first-run {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 2.4rem;
+  }
+  50% {
+    width: 0.8rem;
+  }
+  75% {
+    width: 1.2rem;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/*
+ * @file
+ * Drupal's Dropdown
+ */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown .menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  overflow-y: auto;
+  max-height: 50vh;
+  -webkit-animation: slide-down 0.15s ease 1;
+  animation: slide-down 0.15s ease 1;
+}
+
+.dropdown.dropdown-right .menu {
+  right: 0;
+  left: auto;
+}
+
+.dropdown.active .menu,
+.dropdown .dropdown-toggle:focus + .menu,
+.dropdown .menu:hover {
+  display: block;
+}
+
+.dropdown .btn-group .dropdown-toggle:nth-last-child(2) {
+  border-top-right-radius: 0.1rem;
+  border-bottom-right-radius: 0.1rem;
+}
+
+/*
+ * @file
+ * Spectre Empty states
+ *
+ * Empty states/blank slates are commonly used as placeholders for first time
+ * use, empty data and error screens.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#empty
+ */
+.empty {
+  padding: 3.2rem 1.6rem;
+  text-align: center;
+  color: #667189;
+  border-radius: 0.1rem;
+  background: #f8f9fa;
+}
+
+.empty .empty-icon {
+  margin-bottom: 0.8rem;
+}
+
+.empty .empty-title,
+.empty .empty-subtitle {
+  margin: 0.4rem auto;
+}
+
+.empty .empty-action {
+  margin-top: 0.8rem;
+}
+
+/*
+ * @file
+ * Spectre Filters
+ *
+ * Filters are CSS only content filters.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#filters
+ */
+.filter .filter-tag#tag-0:checked ~ .filter-nav .chip[for="tag-0"],
+.filter .filter-tag#tag-1:checked ~ .filter-nav .chip[for="tag-1"],
+.filter .filter-tag#tag-2:checked ~ .filter-nav .chip[for="tag-2"],
+.filter .filter-tag#tag-3:checked ~ .filter-nav .chip[for="tag-3"],
+.filter .filter-tag#tag-4:checked ~ .filter-nav .chip[for="tag-4"],
+.filter .filter-tag#tag-5:checked ~ .filter-nav .chip[for="tag-5"],
+.filter .filter-tag#tag-6:checked ~ .filter-nav .chip[for="tag-6"],
+.filter .filter-tag#tag-7:checked ~ .filter-nav .chip[for="tag-7"],
+.filter .filter-tag#tag-8:checked ~ .filter-nav .chip[for="tag-8"] {
+  color: #fff;
+  background: #5755d9;
+}
+
+.filter .filter-tag#tag-1:checked ~ .filter-body .filter-item:not([data-tag~="tag-1"]),
+.filter .filter-tag#tag-2:checked ~ .filter-body .filter-item:not([data-tag~="tag-2"]),
+.filter .filter-tag#tag-3:checked ~ .filter-body .filter-item:not([data-tag~="tag-3"]),
+.filter .filter-tag#tag-4:checked ~ .filter-body .filter-item:not([data-tag~="tag-4"]),
+.filter .filter-tag#tag-5:checked ~ .filter-body .filter-item:not([data-tag~="tag-5"]),
+.filter .filter-tag#tag-6:checked ~ .filter-body .filter-item:not([data-tag~="tag-6"]),
+.filter .filter-tag#tag-7:checked ~ .filter-body .filter-item:not([data-tag~="tag-7"]),
+.filter .filter-tag#tag-8:checked ~ .filter-body .filter-item:not([data-tag~="tag-8"]) {
+  display: none;
+}
+
+.filter .filter-nav {
+  margin: 0.4rem 0;
+}
+
+.filter .filter-body {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*
+ * @file
+ * Drupal's Hidden classes
+ *
+ * Hide elements from all users. Compare to the visually-hidden component.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be a collapsible fieldset that will be expanded with a click
+ * from a user.
+ *
+ * For anything you want to hide on page load when JavaScript is enabled, use
+ * the `.js-hidden` class.*/
+.hidden,
+html.js .js-hidden,
+html.js .element-hidden,
+html.js .js-hide {
+  display: none;
+}
+
+/*
+ * @file
+ * Drupal's Highlight mark
+ *
+ * The "new" or "updated" marker. This is a very thin component. A front-end
+ * developer may choose to delete this component and just style the `<mark>`
+ * element directly.
+ */
+.highlight-mark,
+.new,
+.update {
+  color: #ffe9b3;
+  background-color: transparent;
+}
+
+/*
+ * @file
+ * Drupal's Inline links
+ *
+ * A list of links that are inline with each other.
+ */
+.inline-links,
+.inline.links {
+  padding: 0;
+}
+
+.inline-links__item,
+.inline.links li {
+  display: inline;
+  padding: 0 1em 0 0;
+  list-style-type: none;
+}
+
+/*
+ * @file
+ * Drupal's Inline sibling
+ *
+ * An element that needs to appear inline with the content that follows.
+ */
+.inline-sibling,
+.field-label-inline .field-label,
+span.field-label {
+  display: inline;
+  margin-right: 10px;
+}
+
+.inline-sibling__child,
+.inline-sibling *,
+.field-label-inline .field-label *,
+span.field-label * {
+  display: inline;
+}
+
+.inline-sibling__adjacent,
+.inline-sibling + *,
+.inline-sibling + * > :first-child,
+.inline-sibling + * > :first-child > :first-child,
+.field-label-inline .field-label + *,
+span.field-label + *,
+.field-label-inline .field-label + * > :first-child,
+span.field-label + * > :first-child,
+.field-label-inline .field-label + * > :first-child > :first-child,
+span.field-label + * > :first-child > :first-child {
+  display: inline;
+}
+
+.field-label-inline .field-label,
+.field-label-inline .field-items {
+  float: none;
+}
+
+/*
+ * @file
+ * Drupal's Menu & Nav menu
+ *
+ * A "nav menu" is secondary, hierarchical navigation which can be displayed to
+ * the side or below the main content.
+ */
+.menu,
+.nav-menu {
+  z-index: 100;
+  min-width: 180px;
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  -webkit-transform: translateY(0.2rem);
+  -ms-transform: translateY(0.2rem);
+  transform: translateY(0.2rem);
+  border-radius: 0.1rem;
+  background: #fff;
+  box-shadow: 0 0.05rem 0.2rem rgba(69, 77, 93, 0.3);
+}
+
+.menu__item,
+.nav-menu__item,
+.menu__item {
+  margin-top: 0;
+  padding: 0 0.4rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+}
+
+.menu__item > a,
+.nav-menu__item > a,
+.menu__item > a {
+  display: block;
+  margin: 0 -0.4rem;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.1rem;
+}
+
+.menu__item > a:focus,
+.menu__item > a:hover,
+.nav-menu__item > a:focus,
+.nav-menu__item > a:hover,
+.menu__item > a:focus,
+.menu__item > a:hover {
+  color: #5755d9;
+  background: #f1f1fc;
+}
+
+.menu__item > a:active,
+.menu__item > a.active,
+.nav-menu__item > a:active,
+.nav-menu__item > a.active,
+.menu__item > a:active,
+.menu__item > a.active {
+  color: #5755d9;
+  background: #f1f1fc;
+}
+
+.menu__item + .menu__item__item,
+.nav-menu__item + .menu__item__item,
+.menu__item + .menu__item__item,
+.menu__item + .nav-menu__item__item,
+.nav-menu__item + .nav-menu__item__item,
+.menu__item + .nav-menu__item__item {
+  margin-top: 0.2rem;
+}
+
+.menu .menu-badge,
+.nav-menu .menu-badge {
+  float: right;
+  padding: 0.2rem 0;
+}
+
+.menu .menu-badge .btn,
+.nav-menu .menu-badge .btn {
+  margin-top: -0.1rem;
+}
+
+.nav-menu,
+.toolbar-menu .menu,
+.toolbar-drawer .menu,
+.menu .menu {
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu__item {
+  /*&.is-expanded {
+    @extend %nav-menu__item--is-expanded;
+  }*/
+  /*&.is-collapsed {
+    @extend %nav-menu__item--is-collapsed;
+  }*/
+}
+
+/*.menu a.active {
+  @extend %nav-menu__link--is-active;
+}*/
+/*
+ * @file
+ * Drupal's Messages
+ *
+ * System alerts.
+ *
+ * Warning messages should use the `.messages--warning` class. Error messages
+ * should use the `.messages--error` class.
+ */
+.messages,
+.messages--status {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  color: #fff;
+  border: 0.05rem solid #454d5d;
+  border-color: #454d5d;
+  border-radius: 0.1rem;
+  background: rgba(69, 77, 93, 0.9);
+}
+
+.messages__icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  line-height: 1;
+}
+
+.messages__highlight,
+.messages--error .error,
+.messages.error .error {
+  border-color: #5755d9;
+  background: rgba(87, 85, 217, 0.9);
+}
+
+.messages__list {
+  margin: 0;
+}
+
+.messages__item {
+  list-style-image: none;
+}
+
+.messages--ok-color,
+.ok,
+.revision-current {
+  border-color: #32b643;
+  background: rgba(50, 182, 67, 0.9);
+}
+
+.messages--warning-color,
+.messages--warning,
+.messages.warning,
+.warning {
+  border-color: #ffb700;
+  background: rgba(255, 183, 0, 0.9);
+}
+
+.messages--error-color,
+.messages--error,
+.messages.error,
+.error {
+  border-color: #e85600;
+  background: rgba(232, 86, 0, 0.9);
+}
+
+.messages a,
+.messages--status a {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.messages a:focus,
+.messages a:hover,
+.messages a:active,
+.messages a.active,
+.messages--status a:focus,
+.messages--status a:hover,
+.messages--status a:active,
+.messages--status a.active {
+  opacity: 0.75;
+}
+
+/*
+ * @file
+ * Spectre Meters
+ *
+ * Meters represent the value within the known range.
+ * @see https://css-tricks.com/html5-meter-element/
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#meters
+ */
+.meter {
+  display: block;
+  width: 100%;
+  height: 0.8rem;
+  border: 0;
+  border-radius: 0.1rem;
+  background: #f8f9fa;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.meter::-webkit-meter-inner-element {
+  display: block;
+}
+
+.meter::-webkit-meter-bar,
+.meter::-webkit-meter-optimum-value,
+.meter::-webkit-meter-suboptimum-value,
+.meter::-webkit-meter-even-less-good-value {
+  border-radius: 0.1rem;
+}
+
+.meter::-webkit-meter-bar {
+  background: #f8f9fa;
+}
+
+.meter::-webkit-meter-optimum-value {
+  background: #32b643;
+}
+
+.meter::-webkit-meter-suboptimum-value {
+  background: #ffb700;
+}
+
+.meter::-webkit-meter-even-less-good-value {
+  background: #e85600;
+}
+
+.meter::-moz-meter-bar,
+.meter:-moz-meter-optimum,
+.meter:-moz-meter-sub-optimum,
+.meter:-moz-meter-sub-sub-optimum {
+  border-radius: 0.1rem;
+}
+
+.meter:-moz-meter-optimum::-moz-meter-bar {
+  background: #32b643;
+}
+
+.meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: #ffb700;
+}
+
+.meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: #e85600;
+}
+
+/*
+ * @file
+ * Zen's "More" link
+ *
+ * Styles the "Read more…" and "Help" links common in Drupal.
+ */
+.more-link,
+.more-help-link {
+  text-align: right;
+}
+
+.more-link__help-icon,
+.more-help-link a {
+  padding: 1px 0 1px 20px;
+  background-image: url(../sass/navigation/more-link/more-link__help-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
+/*
+ * @file
+ * Spectre Navs
+ *
+ * Add a container element with the nav class. And add child elements with the
+ * nav-item class. The nav-item with the active class will be highlighted.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#navs
+ */
+.nav {
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0.2rem 0;
+  list-style: none;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+}
+
+.nav .nav-item a {
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+  color: #667189;
+}
+
+.nav .nav-item a:focus,
+.nav .nav-item a:hover {
+  color: #5755d9;
+}
+
+.nav .nav-item.active > a {
+  color: #50596c;
+  font-weight: 700;
+}
+
+.nav .nav-item.active > a:focus,
+.nav .nav-item.active > a:hover {
+  color: #5755d9;
+}
+
+.nav .nav {
+  margin-bottom: 0.4rem;
+  margin-left: 0.8rem;
+}
+
+/*
+ * @file
+ * Spectre Off canvas menus
+ *
+ * The Off-canvas is a navigation layout that the sidebar can slide in and out
+ * of the viewport. It is built in pure CSS.
+ *
+ * By default, the off-canvas menu is collapsed whenever the window width is.
+ * But you can add the off-canvas-sidebar-show class to the off-canvas to make
+ * the sidebar expanded when the window width is larger than or equal to 960px.
+ *
+ * You can open the sidebar by adding the class active to off-canvas-sidebar.
+ * And remove the active to close it.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#off-canvas
+ */
+.off-canvas {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  flex-flow: nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+.off-canvas .off-canvas-toggle {
+  position: absolute;
+  z-index: 1;
+  top: 0.4rem;
+  left: 0.4rem;
+  display: block;
+  transition: none;
+}
+
+.off-canvas .off-canvas-sidebar {
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  min-width: 10rem;
+  transition: -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  background: #f8f9fa;
+}
+
+.off-canvas .off-canvas-sidebar:target,
+.off-canvas .off-canvas-sidebar.active {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.off-canvas .off-canvas-sidebar:target ~ .off-canvas-overlay,
+.off-canvas .off-canvas-sidebar.active ~ .off-canvas-overlay {
+  z-index: 200;
+  display: block;
+}
+
+.off-canvas .off-canvas-content {
+  flex: 1 1 auto;
+  height: 100%;
+  padding: 0.4rem 0.4rem 0.4rem 4rem;
+
+  -webkit-box-flex: 1;
+}
+
+.off-canvas .off-canvas-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-color: transparent;
+  border-radius: 0;
+  background: rgba(69, 77, 93, 0.1);
+}
+
+@media (min-width: 960px) {
+  .off-canvas.off-canvas-sidebar-show .off-canvas-toggle {
+    display: none;
+  }
+  .off-canvas.off-canvas-sidebar-show .off-canvas-sidebar {
+    position: relative;
+    flex: 0 0 auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+
+    -webkit-box-flex: 0;
+  }
+}
+
+/*
+ * @file
+ * Drupal's Pager
+ *
+ * Paged navigation is a list of page numbers when more than 1 page of content
+ * is available.
+ */
+.pager {
+  display: -webkit-box;
+  display: flex;
+  margin: 0.2rem 0;
+  padding: 0.2rem 0;
+  list-style: none;
+}
+
+@media print {
+  .pager {
+    display: none;
+  }
+}
+
+.pager__item,
+.pager__current-item,
+.pager-current,
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last {
+  margin: 0.2rem 0.05rem;
+}
+
+.pager__item a,
+.pager__current-item a,
+.pager-current a,
+.pager-item a,
+.pager-first a,
+.pager-previous a,
+.pager-next a,
+.pager-last a {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+  color: #667189;
+  border-radius: 0.1rem;
+}
+
+.pager__item a:focus,
+.pager__item a:hover,
+.pager__current-item a:focus,
+.pager-current a:focus,
+.pager-item a:focus,
+.pager-first a:focus,
+.pager-previous a:focus,
+.pager-next a:focus,
+.pager-last a:focus,
+.pager__current-item a:hover,
+.pager-current a:hover,
+.pager-item a:hover,
+.pager-first a:hover,
+.pager-previous a:hover,
+.pager-next a:hover,
+.pager-last a:hover {
+  color: #5755d9;
+}
+
+.pager__current-item,
+.pager-current {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+  color: #667189;
+  border-radius: 0.1rem;
+  background: #5755d9;
+}
+
+/*
+ * .pager-item     - A list item containing a page number in the list of pages.
+ * .pager-first    - The first page's list item.
+ * .pager-previous - The previous page's list item.
+ * .pager-next     - The next page's list item.
+ * .pager-last     - The last page's list item.
+ * .pager-ellipsis - A concatenation of several list items using an ellipsis.
+ */
+.pager-first,
+.pager-last {
+  flex: 1 0 50%;
+
+  -webkit-box-flex: 1;
+}
+
+.pager-next,
+.pager-last {
+  text-align: right;
+}
+
+.pager-ellipsis {
+  display: inline-block;
+  padding: 0.2rem;
+}
+
+/*
+ * @file
+ * Spectre Panels
+ *
+ * Panels are flexible view container with auto-expand content section.
+ *
+ * Add a container element with the panel class. And add child elements with
+ * the panel-header, panel-nav, panel-body and/or panel-footer class. The
+ * panel-body can be auto expanded and vertically scrollable.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#panels
+ */
+.panel {
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  border: 0.05rem solid #e7e9ed;
+  border-radius: 0.1rem;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+}
+
+.panel .panel-header,
+.panel .panel-footer {
+  flex: 0 0 auto;
+  padding: 0.8rem;
+
+  -webkit-box-flex: 0;
+}
+
+.panel .panel-nav {
+  flex: 0 0 auto;
+
+  -webkit-box-flex: 0;
+}
+
+.panel .panel-body {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding: 0 0.8rem;
+
+  -webkit-box-flex: 1;
+}
+
+/*
+ * @file
+ * Spectre Parallax
+ *
+ * The Parallax acts like Apple TV/tvOS hover parallax effect. It is built in
+ * pure CSS.
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#parallax
+  */
+.parallax {
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.parallax .parallax-content {
+  width: 100%;
+  height: auto;
+  transition: all 0.4s ease;
+  -webkit-transform: perspective(1000px);
+  transform: perspective(1000px);
+  box-shadow: 0 1rem 2.1rem rgba(69, 77, 93, 0.3);
+
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.parallax .parallax-content::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.parallax .parallax-front {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease;
+  -webkit-transform: translateZ(50px) scale(0.95);
+  transform: translateZ(50px) scale(0.95);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(69, 77, 93, 0.75);
+
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+
+.parallax .parallax-top-left {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  outline: none;
+}
+
+.parallax .parallax-top-left:focus ~ .parallax-content,
+.parallax .parallax-top-left:hover ~ .parallax-content {
+  -webkit-transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
+  transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
+}
+
+.parallax .parallax-top-left:focus ~ .parallax-content::before,
+.parallax .parallax-top-left:hover ~ .parallax-content::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 50%);
+}
+
+.parallax .parallax-top-left:focus ~ .parallax-content .parallax-front,
+.parallax .parallax-top-left:hover ~ .parallax-content .parallax-front {
+  -webkit-transform: translate3d(4.5px, 4.5px, 50px) scale(0.95);
+  transform: translate3d(4.5px, 4.5px, 50px) scale(0.95);
+}
+
+.parallax .parallax-top-right {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  outline: none;
+}
+
+.parallax .parallax-top-right:focus ~ .parallax-content,
+.parallax .parallax-top-right:hover ~ .parallax-content {
+  -webkit-transform: perspective(1000px) rotateX(3deg) rotateY(3deg);
+  transform: perspective(1000px) rotateX(3deg) rotateY(3deg);
+}
+
+.parallax .parallax-top-right:focus ~ .parallax-content::before,
+.parallax .parallax-top-right:hover ~ .parallax-content::before {
+  background: linear-gradient(-135deg, rgba(255, 255, 255, 0.35) 0%, transparent 50%);
+}
+
+.parallax .parallax-top-right:focus ~ .parallax-content .parallax-front,
+.parallax .parallax-top-right:hover ~ .parallax-content .parallax-front {
+  -webkit-transform: translate3d(-4.5px, 4.5px, 50px) scale(0.95);
+  transform: translate3d(-4.5px, 4.5px, 50px) scale(0.95);
+}
+
+.parallax .parallax-bottom-left {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  outline: none;
+}
+
+.parallax .parallax-bottom-left:focus ~ .parallax-content,
+.parallax .parallax-bottom-left:hover ~ .parallax-content {
+  -webkit-transform: perspective(1000px) rotateX(-3deg) rotateY(-3deg);
+  transform: perspective(1000px) rotateX(-3deg) rotateY(-3deg);
+}
+
+.parallax .parallax-bottom-left:focus ~ .parallax-content::before,
+.parallax .parallax-bottom-left:hover ~ .parallax-content::before {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0%, transparent 50%);
+}
+
+.parallax .parallax-bottom-left:focus ~ .parallax-content .parallax-front,
+.parallax .parallax-bottom-left:hover ~ .parallax-content .parallax-front {
+  -webkit-transform: translate3d(4.5px, -4.5px, 50px) scale(0.95);
+  transform: translate3d(4.5px, -4.5px, 50px) scale(0.95);
+}
+
+.parallax .parallax-bottom-right {
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 50%;
+  outline: none;
+}
+
+.parallax .parallax-bottom-right:focus ~ .parallax-content,
+.parallax .parallax-bottom-right:hover ~ .parallax-content {
+  -webkit-transform: perspective(1000px) rotateX(-3deg) rotateY(3deg);
+  transform: perspective(1000px) rotateX(-3deg) rotateY(3deg);
+}
+
+.parallax .parallax-bottom-right:focus ~ .parallax-content::before,
+.parallax .parallax-bottom-right:hover ~ .parallax-content::before {
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 0%, transparent 50%);
+}
+
+.parallax .parallax-bottom-right:focus ~ .parallax-content .parallax-front,
+.parallax .parallax-bottom-right:hover ~ .parallax-content .parallax-front {
+  -webkit-transform: translate3d(-4.5px, -4.5px, 50px) scale(0.95);
+  transform: translate3d(-4.5px, -4.5px, 50px) scale(0.95);
+}
+
+/*
+ * @file
+ * Spectre Popovers
+ *
+ * Popovers are small overlay content containers. Popovers component is built
+ * entirely in CSS.
+ *
+ * Wrap an element by a container with the popover class. And add a container
+ * with the popover-container next to the element. You can use Cards component
+ * inside the popover-container.
+ *
+ * Also, you can add the popover-right, popover-bottom or popover-left class to
+ * define the position. By default, the popovers appear above the element.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#popovers
+ */
+.popover {
+  position: relative;
+  display: inline-block;
+}
+
+.popover .popover-container {
+  position: absolute;
+  z-index: 400;
+  top: 0;
+  left: 50%;
+  width: 320px;
+  padding: 0.4rem;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+  -ms-transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.popover *:focus + .popover-container,
+.popover:hover .popover-container,
+.popover .popover-container:hover {
+  display: block;
+  -webkit-transform: translate(-50%, -100%) scale(1);
+  -ms-transform: translate(-50%, -100%) scale(1);
+  transform: translate(-50%, -100%) scale(1);
+  opacity: 1;
+}
+
+.popover.popover-right .popover-container {
+  top: 50%;
+  left: 100%;
+}
+
+.popover.popover-right :focus + .popover-container,
+.popover.popover-right:hover .popover-container,
+.popover.popover-right .popover-container:hover {
+  -webkit-transform: translate(0, -50%) scale(1);
+  -ms-transform: translate(0, -50%) scale(1);
+  transform: translate(0, -50%) scale(1);
+}
+
+.popover.popover-bottom .popover-container {
+  top: 100%;
+  left: 50%;
+}
+
+.popover.popover-bottom :focus + .popover-container,
+.popover.popover-bottom:hover .popover-container,
+.popover.popover-bottom .popover-container:hover {
+  -webkit-transform: translate(-50%, 0) scale(1);
+  -ms-transform: translate(-50%, 0) scale(1);
+  transform: translate(-50%, 0) scale(1);
+}
+
+.popover.popover-left .popover-container {
+  top: 50%;
+  left: 0;
+}
+
+.popover.popover-left :focus + .popover-container,
+.popover.popover-left:hover .popover-container,
+.popover.popover-left .popover-container:hover {
+  -webkit-transform: translate(-100%, -50%) scale(1);
+  -ms-transform: translate(-100%, -50%) scale(1);
+  transform: translate(-100%, -50%) scale(1);
+}
+
+.popover .card {
+  border: 0;
+  box-shadow: 0 0.2rem 0.5rem rgba(69, 77, 93, 0.3);
+}
+
+/*
+ * @file
+ * Zen's Do not print
+ *
+ * Removes an element from the print version of the web site.
+ *
+ * By importing these CSS rules in a file marked as media "all", we allow these
+ * print rules to be aggregated with other stylesheets, for improved front-end
+ * performance.*/
+@media print {
+  .print-none,
+  .toolbar,
+  .action-links,
+  .links,
+  .book-navigation,
+  .forum-topic-navigation,
+  .feed-icons {
+    display: none;
+  }
+}
+
+/*
+ * @file
+ * Drupal's Progress bar
+ *
+ * Shows the progress of a task in a simple bar graph.
+ *
+ * .progress-bar--inline - An inline progress bar.
+ */
+.progress-bar__bar,
+.progress .bar {
+  position: relative;
+  width: 100%;
+  height: 0.2rem;
+  color: #5755d9;
+  border: 0;
+  border-radius: 0.1rem;
+  background: #f0f1f4;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.progress-bar__fill,
+.progress .filled {
+  -webkit-animation: progress-indeterminate 1.5s linear infinite;
+  animation: progress-indeterminate 1.5s linear infinite;
+  background: #f0f1f4 linear-gradient(to right, #5755d9 30%, #f0f1f4 30%) top left/150% 150% no-repeat;
+}
+
+.progress-bar__percentage,
+.progress .percentage {
+  float: right;
+  border-radius: 0.1rem;
+  background: #5755d9;
+}
+
+.progress-bar--inline,
+.ajax-progress-bar {
+  display: inline-block;
+  width: 16em;
+}
+
+@-webkit-keyframes progress-indeterminate {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/*
+ * @file
+ * Drupal's Progress throbber
+ *
+ * Shows the progress of a task using a throbber.
+ */
+.progress-throbber,
+.ajax-progress {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+
+.progress-throbber__widget,
+.ajax-progress .throbber {
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  background: url(../sass/forms/progress-throbber/progress-throbber.gif) no-repeat 0 -18px transparent;
+}
+
+.progress-throbber__widget-in-tr,
+tr .ajax-progress .throbber {
+  margin: 0 2px;
+}
+
+.progress-throbber__message,
+.ajax-progress .message {
+  padding-left: 20px;
+}
+
+/*
+ * @file
+ * Drupal's Skip link
+ *
+ * To make the link completely hidden until a user tabs to the link, combine it
+ * with the `visually-hidden` component.*/
+.skip-link {
+  display: block;
+  padding: 2px 0 3px;
+  text-align: center;
+}
+
+.skip-link:link,
+.skip-link:visited {
+  color: #5755d9;
+  background-color: #f8f9fa;
+}
+
+.skip-link__wrapper {
+  margin: 0;
+}
+
+@media print {
+  .skip-link__wrapper {
+    display: none;
+  }
+}
+
+/*
+ * @file
+ * Spectre Sliders
+ *
+ * Sliders are for selecting values from ranges.
+ *
+ * You can add the class tooltip to have tooltip labels. If no data-tooltip is
+ * set, the value will be used instead.
+ *
+ * @see https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+ *
+ * @see https://picturepan2.github.io/spectre/experimentals.html#sliders
+ */
+.slider {
+  display: block;
+  width: 100%;
+  height: 1.2rem;
+  background: transparent;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.slider:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+
+.slider.tooltip:not([data-tooltip])::after {
+  content: attr(value);
+}
+
+.slider::-webkit-slider-thumb {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: -0.25rem;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  border: 0;
+  border-radius: 50%;
+  background: #5755d9;
+
+  -webkit-appearance: none;
+}
+
+.slider::-moz-range-thumb {
+  width: 0.6rem;
+  height: 0.6rem;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  border: 0;
+  border-radius: 50%;
+  background: #5755d9;
+}
+
+.slider::-ms-thumb {
+  width: 0.6rem;
+  height: 0.6rem;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  border: 0;
+  border-radius: 50%;
+  background: #5755d9;
+}
+
+.slider:active::-webkit-slider-thumb {
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25);
+}
+
+.slider:active::-moz-range-thumb {
+  transform: scale(1.25);
+}
+
+.slider:active::-ms-thumb {
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
+}
+
+.slider:disabled::-webkit-slider-thumb,
+.slider.disabled::-webkit-slider-thumb {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  background: #e7e9ed;
+}
+
+.slider:disabled::-moz-range-thumb,
+.slider.disabled::-moz-range-thumb {
+  transform: scale(1);
+  background: #e7e9ed;
+}
+
+.slider:disabled::-ms-thumb,
+.slider.disabled::-ms-thumb {
+  -ms-transform: scale(1);
+  transform: scale(1);
+  background: #e7e9ed;
+}
+
+.slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.1rem;
+  border-radius: 0.1rem;
+  background: #f0f1f4;
+}
+
+.slider::-moz-range-track {
+  width: 100%;
+  height: 0.1rem;
+  border-radius: 0.1rem;
+  background: #f0f1f4;
+}
+
+.slider::-ms-track {
+  width: 100%;
+  height: 0.1rem;
+  border-radius: 0.1rem;
+  background: #f0f1f4;
+}
+
+.slider::-ms-fill-lower {
+  background: #5755d9;
+}
+
+/*
+ * @file
+ * Spectre Steps
+ *
+ * Steps are progress indicators of a sequence of task steps.
+ *
+ * Add a container element with the step class. And add child elements with the
+ * step-item class. The step-item with the active class will be highlighted and
+ * indicate the current state of progress.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#steps
+ */
+.step {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 0.2rem 0;
+  list-style: none;
+}
+
+.step-item {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 1rem;
+  margin-top: 0;
+  text-align: center;
+
+  -webkit-box-flex: 1;
+}
+
+.step-item:not(:first-child)::before {
+  position: absolute;
+  top: 9px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  content: " ";
+  background: #5755d9;
+}
+
+.step-item a {
+  display: inline-block;
+  padding: 20px 10px 0;
+  text-decoration: none;
+  color: #acb3c2;
+}
+
+.step-item a::before {
+  position: absolute;
+  z-index: 1;
+  top: 0.2rem;
+  left: 50%;
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  content: " ";
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border: 0.1rem solid #fff;
+  border-radius: 50%;
+  background: #5755d9;
+}
+
+.step-item.active a::before {
+  border: 0.1rem solid #5755d9;
+  background: #fff;
+}
+
+.step-item.active ~ .step-item::before {
+  background: #e7e9ed;
+}
+
+.step-item.active ~ .step-item a::before {
+  background: #e7e9ed;
+}
+
+/*
+ * @file
+ * Drupal's Tabs + Spectre Tabs
+ *
+ * The primary and secondary tabs.
+ */
+.tabs {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.2rem 0 0.15rem;
+  list-style: none;
+  border-bottom: 0.05rem solid #e7e9ed;
+
+  -webkit-box-align: center;
+}
+
+@media print {
+  .tabs {
+    display: none;
+  }
+}
+
+.tabs__tab {
+  margin-top: 0;
+}
+
+.tabs__tab.is-active a {
+  text-decoration: none;
+  color: #5755d9;
+  border-bottom-color: #5755d9;
+}
+
+.tabs__tab-link {
+  display: block;
+  margin: 0 0.4rem 0 0;
+  padding: 0.4rem 0.2rem 0.3rem 0.2rem;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 0.1rem solid transparent;
+}
+
+.tabs__tab-link:focus,
+.tabs__tab-link:hover {
+  text-decoration: none;
+  color: #5755d9;
+}
+
+.tabs--off,
+.views-displays .secondary {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  background-image: none;
+}
+
+/*
+ * @file
+ * Spectre Tiles
+ *
+ * Tiles are repeatable or embeddable information blocks.
+ *
+ * Add a container with the tile class. And add child elements with the
+ * tile-icon, tile-content or/and tile-action classes. The tile-icon and
+ * tile-action are optional.
+ *
+ * There are tile-title and tile-subtitle classes for title and subtitle text
+ * styles.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#tiles
+ */
+.tile {
+  display: -webkit-box;
+  display: flex;
+  align-items: flex-start;
+  align-content: space-between;
+
+  -webkit-box-align: start;
+}
+
+.tile .tile-icon,
+.tile .tile-action {
+  flex: 0 0 auto;
+
+  -webkit-box-flex: 0;
+}
+
+.tile .tile-content {
+  flex: 1 1 auto;
+
+  -webkit-box-flex: 1;
+}
+
+.tile .tile-content:not(:first-child) {
+  padding-left: 0.4rem;
+}
+
+.tile .tile-content:not(:last-child) {
+  padding-right: 0.4rem;
+}
+
+.tile .tile-title,
+.tile .tile-subtitle {
+  line-height: 1rem;
+}
+
+.tile.tile-centered {
+  align-items: center;
+
+  -webkit-box-align: center;
+}
+
+.tile.tile-centered .tile-content {
+  overflow: hidden;
+}
+
+.tile.tile-centered .tile-title,
+.tile.tile-centered .tile-subtitle {
+  overflow: hidden;
+  margin-bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*
+  * @file
+  * Spectre Timelines
+  *
+  * Timelines are ordered sequences of activities.
+  *
+  * @see https://picturepan2.github.io/spectre/experimentals.html#timelines
+  */
+.timeline .timeline-item {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+
+.timeline .timeline-item::before {
+  position: absolute;
+  top: 1.2rem;
+  left: 11px;
+  width: 2px;
+  height: 100%;
+  content: " ";
+  background: #e7e9ed;
+}
+
+.timeline .timeline-item .timeline-left {
+  flex: 0 0 auto;
+
+  -webkit-box-flex: 0;
+}
+
+.timeline .timeline-item .timeline-content {
+  flex: 1 1 auto;
+  padding: 2px 0 2px 0.8rem;
+
+  -webkit-box-flex: 1;
+}
+
+.timeline .timeline-item .timeline-icon {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.timeline .timeline-item .timeline-icon::before {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  content: " ";
+  border: 0.1rem solid #5755d9;
+  border-radius: 50%;
+}
+
+.timeline .timeline-item .timeline-icon.icon-lg {
+  background: #5755d9;
+  line-height: 1rem;
+}
+
+.timeline .timeline-item .timeline-icon.icon-lg::before {
+  content: none;
+}
+
+/*
+ * @file
+ * Spectre Tooltips
+ *
+ * And you can add the toast-primary, toast-success, toast-warning or
+ * toast-error class for additional toast colors.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#tooltips
+ */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  position: absolute;
+  z-index: 300;
+  bottom: 100%;
+  left: 50%;
+  display: block;
+  overflow: hidden;
+  max-width: 320px;
+  padding: 0.2rem 0.4rem;
+  content: attr(data-tooltip);
+  transition: all 0.2s ease;
+  -webkit-transform: translate(-50%, 0.4rem);
+  -ms-transform: translate(-50%, 0.4rem);
+  transform: translate(-50%, 0.4rem);
+  white-space: pre;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  opacity: 0;
+  color: #fff;
+  border-radius: 0.1rem;
+  background: rgba(69, 77, 93, 0.9);
+  font-size: 0.7rem;
+}
+
+.tooltip:focus::after,
+.tooltip:hover::after {
+  -webkit-transform: translate(-50%, -0.2rem);
+  -ms-transform: translate(-50%, -0.2rem);
+  transform: translate(-50%, -0.2rem);
+  opacity: 1;
+}
+
+.tooltip[disabled],
+.tooltip.disabled {
+  pointer-events: auto;
+}
+
+.tooltip.tooltip-right::after {
+  bottom: 50%;
+  left: 100%;
+  -webkit-transform: translate(-0.2rem, 50%);
+  -ms-transform: translate(-0.2rem, 50%);
+  transform: translate(-0.2rem, 50%);
+}
+
+.tooltip.tooltip-right:focus::after,
+.tooltip.tooltip-right:hover::after {
+  -webkit-transform: translate(0.2rem, 50%);
+  -ms-transform: translate(0.2rem, 50%);
+  transform: translate(0.2rem, 50%);
+}
+
+.tooltip.tooltip-bottom::after {
+  top: 100%;
+  bottom: auto;
+  -webkit-transform: translate(-50%, -0.4rem);
+  -ms-transform: translate(-50%, -0.4rem);
+  transform: translate(-50%, -0.4rem);
+}
+
+.tooltip.tooltip-bottom:focus::after,
+.tooltip.tooltip-bottom:hover::after {
+  -webkit-transform: translate(-50%, 0.2rem);
+  -ms-transform: translate(-50%, 0.2rem);
+  transform: translate(-50%, 0.2rem);
+}
+
+.tooltip.tooltip-left::after {
+  right: 100%;
+  bottom: 50%;
+  left: auto;
+  -webkit-transform: translate(0.4rem, 50%);
+  -ms-transform: translate(0.4rem, 50%);
+  transform: translate(0.4rem, 50%);
+}
+
+.tooltip.tooltip-left:focus::after,
+.tooltip.tooltip-left:hover::after {
+  -webkit-transform: translate(-0.2rem, 50%);
+  -ms-transform: translate(-0.2rem, 50%);
+  transform: translate(-0.2rem, 50%);
+}
+
+/*
+ * @file
+ * Spectre Icons
+ *
+ * Icons are single-element, responsive and pure CSS icons. You can include
+ * spectre-icons.css located in the dist folder to your web <head> to have
+ * these CSS icons.
+ *
+ * @see https://picturepan2.github.io/spectre/elements.html#icons
+ */
+.icon {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  text-indent: -9999px;
+  font-size: inherit;
+  font-style: normal;
+}
+
+.icon::before,
+.icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.icon.icon-2x {
+  font-size: 1.6rem;
+}
+
+.icon.icon-3x {
+  font-size: 2.4rem;
+}
+
+.icon.icon-4x {
+  font-size: 3.2rem;
+}
+
+.accordion .icon,
+.btn .icon,
+.toast .icon,
+.menu .icon {
+  vertical-align: -10%;
+}
+
+.btn-lg .icon {
+  vertical-align: -15%;
+}
+
+.icon-arrow-down::before,
+.icon-arrow-left::before,
+.icon-arrow-right::before,
+.icon-arrow-up::before,
+.icon-downward::before,
+.icon-back::before,
+.icon-forward::before,
+.icon-upward::before {
+  width: 0.65em;
+  height: 0.65em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.icon-arrow-down::before {
+  -webkit-transform: translate(-50%, -75%) rotate(225deg);
+  -ms-transform: translate(-50%, -75%) rotate(225deg);
+  transform: translate(-50%, -75%) rotate(225deg);
+}
+
+.icon-arrow-left::before {
+  -webkit-transform: translate(-25%, -50%) rotate(-45deg);
+  -ms-transform: translate(-25%, -50%) rotate(-45deg);
+  transform: translate(-25%, -50%) rotate(-45deg);
+}
+
+.icon-arrow-right::before {
+  -webkit-transform: translate(-75%, -50%) rotate(135deg);
+  -ms-transform: translate(-75%, -50%) rotate(135deg);
+  transform: translate(-75%, -50%) rotate(135deg);
+}
+
+.icon-arrow-up::before {
+  -webkit-transform: translate(-50%, -25%) rotate(45deg);
+  -ms-transform: translate(-50%, -25%) rotate(45deg);
+  transform: translate(-50%, -25%) rotate(45deg);
+}
+
+.icon-back::after,
+.icon-forward::after {
+  width: 0.8em;
+  height: 0.1rem;
+  content: "";
+  background: currentColor;
+}
+
+.icon-downward::after,
+.icon-upward::after {
+  width: 0.1rem;
+  height: 0.8em;
+  content: "";
+  background: currentColor;
+}
+
+.icon-back::after {
+  left: 55%;
+}
+
+.icon-back::before {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.icon-downward::after {
+  top: 45%;
+}
+
+.icon-downward::before {
+  -webkit-transform: translate(-50%, -50%) rotate(-135deg);
+  -ms-transform: translate(-50%, -50%) rotate(-135deg);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.icon-forward::after {
+  left: 45%;
+}
+
+.icon-forward::before {
+  -webkit-transform: translate(-50%, -50%) rotate(135deg);
+  -ms-transform: translate(-50%, -50%) rotate(135deg);
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.icon-upward::after {
+  top: 55%;
+}
+
+.icon-upward::before {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon-caret::before {
+  width: 0;
+  height: 0;
+  content: "";
+  -webkit-transform: translate(-50%, -25%);
+  -ms-transform: translate(-50%, -25%);
+  transform: translate(-50%, -25%);
+  border-top: 0.3em solid currentColor;
+  border-right: 0.3em solid transparent;
+  border-left: 0.3em solid transparent;
+}
+
+.icon-menu::before {
+  width: 100%;
+  height: 0.1rem;
+  content: "";
+  background: currentColor;
+  box-shadow: 0 -0.35em, 0 0.35em;
+}
+
+.icon-apps::before {
+  width: 3px;
+  height: 3px;
+  content: "";
+  background: currentColor;
+  box-shadow: -0.35em -0.35em, -0.35em 0, -0.35em 0.35em, 0 -0.35em, 0 0.35em, 0.35em -0.35em, 0.35em 0, 0.35em 0.35em;
+}
+
+.icon-resize-horiz::before,
+.icon-resize-horiz::after,
+.icon-resize-vert::before,
+.icon-resize-vert::after {
+  width: 0.45em;
+  height: 0.45em;
+  content: " ";
+  border: 0.1rem solid currentColor;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.icon-resize-horiz::before,
+.icon-resize-vert::before {
+  -webkit-transform: translate(-50%, -90%) rotate(45deg);
+  -ms-transform: translate(-50%, -90%) rotate(45deg);
+  transform: translate(-50%, -90%) rotate(45deg);
+}
+
+.icon-resize-horiz::after,
+.icon-resize-vert::after {
+  -webkit-transform: translate(-50%, -10%) rotate(225deg);
+  -ms-transform: translate(-50%, -10%) rotate(225deg);
+  transform: translate(-50%, -10%) rotate(225deg);
+}
+
+.icon-resize-horiz::before {
+  -webkit-transform: translate(-90%, -50%) rotate(-45deg);
+  -ms-transform: translate(-90%, -50%) rotate(-45deg);
+  transform: translate(-90%, -50%) rotate(-45deg);
+}
+
+.icon-resize-horiz::after {
+  -webkit-transform: translate(-10%, -50%) rotate(135deg);
+  -ms-transform: translate(-10%, -50%) rotate(135deg);
+  transform: translate(-10%, -50%) rotate(135deg);
+}
+
+.icon-more-horiz::before,
+.icon-more-vert::before {
+  width: 3px;
+  height: 3px;
+  content: " ";
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: -0.4em 0, 0.4em 0;
+}
+
+.icon-more-vert::before {
+  box-shadow: 0 -0.4em, 0 0.4em;
+}
+
+.icon-plus::before,
+.icon-minus::before,
+.icon-cross::before {
+  width: 100%;
+  height: 0.1rem;
+  content: " ";
+  background: currentColor;
+}
+
+.icon-plus::after,
+.icon-cross::after {
+  width: 0.1rem;
+  height: 100%;
+  content: " ";
+  background: currentColor;
+}
+
+.icon-cross::before {
+  width: 100%;
+}
+
+.icon-cross::after {
+  height: 100%;
+}
+
+.icon-cross::before,
+.icon-cross::after {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon-check::before {
+  width: 0.9em;
+  height: 0.5em;
+  content: " ";
+  -webkit-transform: translate(-50%, -75%) rotate(-45deg);
+  -ms-transform: translate(-50%, -75%) rotate(-45deg);
+  transform: translate(-50%, -75%) rotate(-45deg);
+  border: 0.1rem solid currentColor;
+  border-top: 0;
+  border-right: 0;
+}
+
+.icon-stop {
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-stop::before {
+  width: 1em;
+  height: 0.1rem;
+  content: " ";
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: currentColor;
+}
+
+.icon-shutdown {
+  border: 0.1rem solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+
+.icon-shutdown::before {
+  top: 0.1em;
+  width: 0.1rem;
+  height: 0.5em;
+  content: " ";
+  background: currentColor;
+}
+
+.icon-refresh::before {
+  width: 1em;
+  height: 1em;
+  content: " ";
+  border: 0.1rem solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.icon-refresh::after {
+  top: 20%;
+  left: 80%;
+  width: 0;
+  height: 0;
+  content: " ";
+  border: 0.2em solid currentColor;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.icon-search::before {
+  top: 5%;
+  left: 5%;
+  width: 0.75em;
+  height: 0.75em;
+  content: " ";
+  -webkit-transform: translate(0, 0) rotate(45deg);
+  -ms-transform: translate(0, 0) rotate(45deg);
+  transform: translate(0, 0) rotate(45deg);
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-search::after {
+  top: 80%;
+  left: 80%;
+  width: 0.4em;
+  height: 0.1rem;
+  content: " ";
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: currentColor;
+}
+
+.icon-edit::before {
+  width: 0.85em;
+  height: 0.4em;
+  content: " ";
+  -webkit-transform: translate(-40%, -60%) rotate(-45deg);
+  -ms-transform: translate(-40%, -60%) rotate(-45deg);
+  transform: translate(-40%, -60%) rotate(-45deg);
+  border: 0.1rem solid currentColor;
+}
+
+.icon-edit::after {
+  top: 95%;
+  left: 5%;
+  width: 0;
+  height: 0;
+  content: " ";
+  -webkit-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  border: 0.15em solid currentColor;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.icon-delete::before {
+  top: 60%;
+  width: 0.75em;
+  height: 0.75em;
+  content: " ";
+  border: 0.1rem solid currentColor;
+  border-top: 0;
+  border-bottom-right-radius: 0.1rem;
+  border-bottom-left-radius: 0.1rem;
+}
+
+.icon-delete::after {
+  top: 0.05rem;
+  width: 0.5em;
+  height: 0.1rem;
+  content: " ";
+  background: currentColor;
+  box-shadow: -0.25em 0.2em, 0.25em 0.2em;
+}
+
+.icon-share {
+  border: 0.1rem solid currentColor;
+  border-top: 0;
+  border-right: 0;
+  border-radius: 0.1rem;
+}
+
+.icon-share::before {
+  top: 0.25em;
+  left: 100%;
+  width: 0.4em;
+  height: 0.4em;
+  content: " ";
+  -webkit-transform: translate(-125%, -50%) rotate(-45deg);
+  -ms-transform: translate(-125%, -50%) rotate(-45deg);
+  transform: translate(-125%, -50%) rotate(-45deg);
+  border: 0.1rem solid currentColor;
+  border-top: 0;
+  border-left: 0;
+}
+
+.icon-share::after {
+  width: 0.6em;
+  height: 0.5em;
+  content: " ";
+  border: 0.1rem solid currentColor;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 75% 0;
+}
+
+.icon-flag::before {
+  left: 15%;
+  width: 0.1rem;
+  height: 1em;
+  content: " ";
+  background: currentColor;
+}
+
+.icon-flag::after {
+  top: 35%;
+  left: 60%;
+  width: 0.8em;
+  height: 0.65em;
+  content: " ";
+  border: 0.1rem solid currentColor;
+  border-left: 0;
+  border-top-right-radius: 0.1rem;
+  border-bottom-right-radius: 0.1rem;
+}
+
+.icon-bookmark::before {
+  width: 0.8em;
+  height: 0.9em;
+  content: " ";
+  border: 0.1rem solid currentColor;
+  border-bottom: 0;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+}
+
+.icon-bookmark::after {
+  width: 0.5em;
+  height: 0.5em;
+  content: " ";
+  -webkit-transform: translate(-50%, 35%) rotate(-45deg) skew(15deg, 15deg);
+  -ms-transform: translate(-50%, 35%) rotate(-45deg) skew(15deg, 15deg);
+  transform: translate(-50%, 35%) rotate(-45deg) skew(15deg, 15deg);
+  border: 0.1rem solid currentColor;
+  border-bottom: 0;
+  border-left: 0;
+  border-radius: 0.1rem;
+}
+
+.icon-download,
+.icon-upload {
+  border-bottom: 0.1rem solid currentColor;
+}
+
+.icon-download::before,
+.icon-upload::before {
+  width: 0.5em;
+  height: 0.5em;
+  content: " ";
+  -webkit-transform: translate(-50%, -60%) rotate(-135deg);
+  -ms-transform: translate(-50%, -60%) rotate(-135deg);
+  transform: translate(-50%, -60%) rotate(-135deg);
+  border: 0.1rem solid currentColor;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.icon-download::after,
+.icon-upload::after {
+  top: 40%;
+  width: 0.1rem;
+  height: 0.6em;
+  content: " ";
+  background: currentColor;
+}
+
+.icon-upload::before {
+  -webkit-transform: translate(-50%, -60%) rotate(45deg);
+  -ms-transform: translate(-50%, -60%) rotate(45deg);
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.icon-upload::after {
+  top: 50%;
+}
+
+.icon-time {
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-time::before {
+  width: 0.1rem;
+  height: 0.4em;
+  content: "";
+  -webkit-transform: translate(-50%, -75%);
+  -ms-transform: translate(-50%, -75%);
+  transform: translate(-50%, -75%);
+  background: currentColor;
+}
+
+.icon-time::after {
+  width: 0.1rem;
+  height: 0.3em;
+  content: "";
+  -webkit-transform: translate(-50%, -75%) rotate(90deg);
+  -ms-transform: translate(-50%, -75%) rotate(90deg);
+  transform: translate(-50%, -75%) rotate(90deg);
+  -webkit-transform-origin: 50% 90%;
+  -ms-transform-origin: 50% 90%;
+  transform-origin: 50% 90%;
+  background: currentColor;
+}
+
+.icon-mail::before {
+  width: 1em;
+  height: 0.8em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-radius: 0.1rem;
+}
+
+.icon-mail::after {
+  width: 0.5em;
+  height: 0.5em;
+  content: "";
+  -webkit-transform: translate(-50%, -90%) rotate(-45deg) skew(10deg, 10deg);
+  -ms-transform: translate(-50%, -90%) rotate(-45deg) skew(10deg, 10deg);
+  transform: translate(-50%, -90%) rotate(-45deg) skew(10deg, 10deg);
+  border: 0.1rem solid currentColor;
+  border-top: 0;
+  border-right: 0;
+}
+
+.icon-people::before {
+  top: 25%;
+  width: 0.45em;
+  height: 0.45em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-people::after {
+  top: 75%;
+  width: 0.9em;
+  height: 0.4em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-radius: 50% 50% 0 0;
+}
+
+.icon-message {
+  border: 0.1rem solid currentColor;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0.1rem;
+}
+
+.icon-message::before {
+  top: 40%;
+  left: 65%;
+  width: 0.7em;
+  height: 0.8em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-top: 0;
+  border-left: 0;
+  border-bottom-right-radius: 0.1rem;
+}
+
+.icon-message::after {
+  top: 100%;
+  left: 10%;
+  width: 0.1rem;
+  height: 0.3em;
+  content: "";
+  -webkit-transform: translate(0, -90%) rotate(45deg);
+  -ms-transform: translate(0, -90%) rotate(45deg);
+  transform: translate(0, -90%) rotate(45deg);
+  border-radius: 0.1rem;
+  background: currentColor;
+}
+
+.icon-photo {
+  border: 0.1rem solid currentColor;
+  border-radius: 0.1rem;
+}
+
+.icon-photo::before {
+  top: 35%;
+  left: 35%;
+  width: 0.25em;
+  height: 0.25em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-photo::after {
+  left: 60%;
+  width: 0.5em;
+  height: 0.5em;
+  content: "";
+  -webkit-transform: translate(-50%, 25%) rotate(-45deg);
+  -ms-transform: translate(-50%, 25%) rotate(-45deg);
+  transform: translate(-50%, 25%) rotate(-45deg);
+  border: 0.1rem solid currentColor;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.icon-link::before,
+.icon-link::after {
+  width: 0.75em;
+  height: 0.5em;
+  content: "";
+  border: 0.1rem solid currentColor;
+  border-right: 0;
+  border-radius: 5em 0 0 5em;
+}
+
+.icon-link::before {
+  -webkit-transform: translate(-70%, -45%) rotate(-45deg);
+  -ms-transform: translate(-70%, -45%) rotate(-45deg);
+  transform: translate(-70%, -45%) rotate(-45deg);
+}
+
+.icon-link::after {
+  -webkit-transform: translate(-30%, -55%) rotate(135deg);
+  -ms-transform: translate(-30%, -55%) rotate(135deg);
+  transform: translate(-30%, -55%) rotate(135deg);
+}
+
+.icon-location::before {
+  width: 0.8em;
+  height: 0.8em;
+  content: "";
+  -webkit-transform: translate(-50%, -60%) rotate(-45deg);
+  -ms-transform: translate(-50%, -60%) rotate(-45deg);
+  transform: translate(-50%, -60%) rotate(-45deg);
+  border: 0.1rem solid currentColor;
+  border-radius: 50% 50% 50% 0;
+}
+
+.icon-location::after {
+  width: 0.2em;
+  height: 0.2em;
+  content: "";
+  -webkit-transform: translate(-50%, -80%);
+  -ms-transform: translate(-50%, -80%);
+  transform: translate(-50%, -80%);
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-emoji {
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-emoji::before {
+  width: 0.1em;
+  height: 0.1em;
+  content: "";
+  border-radius: 50%;
+  box-shadow: -0.17em -0.15em, 0.17em -0.15em;
+}
+
+.icon-emoji::after {
+  width: 0.5em;
+  height: 0.5em;
+  content: "";
+  -webkit-transform: translate(-50%, -40%) rotate(-135deg);
+  -ms-transform: translate(-50%, -40%) rotate(-135deg);
+  transform: translate(-50%, -40%) rotate(-135deg);
+  border: 0.1rem solid currentColor;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+}

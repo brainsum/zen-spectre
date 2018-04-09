@@ -1,0 +1,75 @@
+/**
+ * @file
+ * Drupal's Tabs + Spectre Tabs
+ *
+ * The primary and secondary tabs.
+ */
+
+
+// Dependencies.
+@import "../../utilities/clearfix";
+
+
+// Tabs (stacked)
+
+// When the secondary tabs appear directly after the primary tabs, the styling
+// is slightly different.
+
+.tabs,
+%tabs {
+  align-items: center;
+  border-bottom: $border-width solid $border-color;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: $unit-1 0 ($unit-1 - $border-width);
+
+  @media print {
+    display: none;
+  }
+
+  &__tab {
+    margin-top: 0;
+
+    &.is-active a {
+      text-decoration: none;
+      border-bottom-color: $primary-color;
+      color: $link-color;
+    }
+  }
+
+  &__tab-link {
+    border-bottom: $border-width-lg solid transparent;
+    color: inherit;
+    display: block;
+    margin: 0 $unit-2 0 0;
+    padding: $unit-2 $unit-1 $unit-2 - $border-width-lg $unit-1;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: $link-color;
+      text-decoration: none;
+    }
+  }
+
+  // Turns off .tabs styling.
+  &--off {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+
+    @if support-for(ie, 9) {
+      border-bottom: 0;
+    }
+
+  }
+}
+
+
+// Drupal selectors.
+
+// Views mis-uses the theme hooks for tabs.
+.views-displays .secondary {
+  @extend %tabs--off;
+}

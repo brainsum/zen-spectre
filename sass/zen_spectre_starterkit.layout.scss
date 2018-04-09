@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Layout
+ * Macro arrangement of a web page, including any grid systems.
+ * Because we use Spectre, it's layout component is imported here,
+ * not like other components.
+ */
+
+// First import our custom variables and mixins
+@import "index";
+
+// Import Spectre's layout component
+@import "components/layout/layout";

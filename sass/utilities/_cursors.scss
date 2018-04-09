@@ -1,0 +1,34 @@
+/**
+ * @file
+ * Spectre Cursor utilities
+ *
+ * Cursor utilities specify which mouse cursor to display when mouseover.
+ *
+ * @see https://picturepan2.github.io/spectre/utilities.html#cursors
+ */
+
+
+// Cursors
+.c-hand {
+  cursor: pointer;
+}
+
+.c-move {
+  cursor: move;
+}
+
+.c-zoom-in {
+  cursor: zoom-in;
+}
+
+.c-zoom-out {
+  cursor: zoom-out;
+}
+
+.c-not-allowed {
+  cursor: not-allowed;
+}
+
+.c-auto {
+  cursor: auto;
+}

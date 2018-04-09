@@ -1,0 +1,73 @@
+/**
+ * @file
+ * Headings
+ *
+ * All HTML headings, `<h1>` through `<h6>`, are available. `%h1` through `%h6`
+ * classes are also available, for when you want to match the font styling of a
+ * heading but still want your text to be displayed inline.
+ */
+
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: .5em;
+  margin-top: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 500;
+}
+
+// Address variable `h1` font-size and margin within `section` and `article`
+// contexts in Firefox 4+, Safari, and Chrome.
+h1,
+%h1 {
+  // Set the font-size and line-height while keeping a proper vertical rhythm.
+  font-size: 2rem;
+}
+
+h2,
+%h2 {
+  font-size: 1.6rem;
+}
+
+h3,
+%h3 {
+  font-size: 1.4rem;
+}
+
+h4,
+%h4 {
+  font-size: 1.2rem;
+}
+
+h5,
+%h5 {
+  font-size: 1rem;
+}
+
+h6,
+%h6 {
+  font-size: .8rem;
+}

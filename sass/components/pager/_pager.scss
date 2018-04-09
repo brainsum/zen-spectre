@@ -1,0 +1,88 @@
+/**
+ * @file
+ * Drupal's Pager
+ *
+ * Paged navigation is a list of page numbers when more than 1 page of content
+ * is available.
+ */
+
+
+.pager,
+%pager {
+  display: flex;
+  list-style: none;
+  margin: $unit-1 0;
+  padding: $unit-1 0;
+
+  @media print {
+    display: none;
+  }
+
+  // A page item in the pager list.
+  &__item {
+    margin: $unit-1 $unit-o;
+
+    a {
+      border-radius: $border-radius;
+      color: $gray-color-dark;
+      display: inline-block;
+      padding: $unit-1 $unit-2;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  // The current page's list item.
+  &__current-item {
+    @extend %pager__item;
+    display: inline-block;
+    padding: $unit-1 $unit-2;
+    border-radius: $border-radius;
+    text-decoration: none;
+    background: $primary-color;
+    color: $gray-color-dark;
+  }
+}
+
+
+// Drupal selectors.
+
+/*
+ * .pager-item     - A list item containing a page number in the list of pages.
+ * .pager-first    - The first page's list item.
+ * .pager-previous - The previous page's list item.
+ * .pager-next     - The next page's list item.
+ * .pager-last     - The last page's list item.
+ * .pager-ellipsis - A concatenation of several list items using an ellipsis.
+ */
+
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last {
+  @extend %pager__item;
+}
+
+.pager-first,
+.pager-last {
+  flex: 1 0 50%;
+}
+
+.pager-next,
+.pager-last {
+  text-align: right;
+}
+
+.pager-ellipsis {
+  display: inline-block;
+  padding: $unit-1;
+}
+
+.pager-current {
+  @extend %pager__current-item;
+}

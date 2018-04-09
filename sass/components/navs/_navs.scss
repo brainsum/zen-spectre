@@ -1,0 +1,47 @@
+/**
+ * @file
+ * Spectre Navs
+ *
+ * Add a container element with the nav class. And add child elements with the
+ * nav-item class. The nav-item with the active class will be highlighted.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#navs
+ */
+
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: $unit-1 0;
+
+  .nav-item {
+    a {
+      color: $gray-color-dark;
+      padding: $unit-1 $unit-2;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    &.active {
+      & > a {
+        color: darken($gray-color-dark, 10%);
+        font-weight: 700;
+
+        &:focus,
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  & .nav {
+    margin-bottom: $unit-2;
+    margin-left: $unit-4;
+  }
+}

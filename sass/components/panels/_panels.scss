@@ -1,0 +1,36 @@
+/**
+ * @file
+ * Spectre Panels
+ *
+ * Panels are flexible view container with auto-expand content section.
+ *
+ * Add a container element with the panel class. And add child elements with
+ * the panel-header, panel-nav, panel-body and/or panel-footer class. The
+ * panel-body can be auto expanded and vertically scrollable.
+ *
+ * @see https://picturepan2.github.io/spectre/components.html#panels
+ */
+
+
+.panel {
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+
+  .panel-header,
+  .panel-footer {
+    flex: 0 0 auto;
+    padding: $layout-spacing-lg;
+  }
+
+  .panel-nav {
+    flex: 0 0 auto;
+  }
+
+  .panel-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 0 $layout-spacing-lg;
+  }
+}
