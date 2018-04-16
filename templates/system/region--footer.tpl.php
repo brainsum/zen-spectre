@@ -9,6 +9,10 @@
 ?>
 <?php if ($content): ?>
   <footer class="footer <?php print $classes; ?>" role="contentinfo">
-    <?php print $content; ?>
+    <div class="container">
+      <div class="columns">
+        <?php print $content; ?>
+      </div>
+    </div>
   </footer>
 <?php endif; ?>

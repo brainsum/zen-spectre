@@ -6,7 +6,10 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728208
  */
-?><!DOCTYPE html>
+?>
+
+
+<!DOCTYPE html>
 <html <?php print $html_attributes . $rdf_namespaces; ?>>
 <head>
   <?php print $head; ?>

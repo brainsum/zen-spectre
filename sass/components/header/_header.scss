@@ -14,7 +14,6 @@
 
   // Wrapping link for logo.
   &__logo {
-    float: left;
     margin: 0 10px 0 0;
     padding: 0;
   }
@@ -25,9 +24,8 @@
   }
 
   // Wrapper for website name and slogan.
-  &__name-and-slogan {
-    float: left;
-  }
+  /*&__name-and-slogan {
+  }*/
 
   // The name of the website.
   &__site-name {
@@ -55,9 +53,8 @@
   }
 
   // The secondary menu (login, etc.)
-  &__secondary-menu {
-    float: right;
-  }
+  /*&__secondary-menu {
+  }*/
 
   // Wrapper for any blocks placed in the header region.
   &__region {

@@ -8,9 +8,11 @@
  */
 ?>
 <?php if ($content): ?>
-  <div class="<?php print $classes; ?> container grid-xl">
-    <div class="columns">
-      <?php print $content; ?>
+  <section class="<?php print $classes; ?>">
+    <div class="container">
+      <div class="columns">
+        <?php print $content; ?>
+      </div>
     </div>
-  </div>
+  </section>
 <?php endif; ?>
