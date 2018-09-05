@@ -27,6 +27,7 @@
 
   &--is-error__widget {
     border-color: $error-color;
+    color: white;
 
     &:focus {
       @include control-shadow($error-color);

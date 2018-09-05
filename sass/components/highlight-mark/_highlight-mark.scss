@@ -5,12 +5,14 @@
  * The "new" or "updated" marker. This is a very thin component. A front-end
  * developer may choose to delete this component and just style the `<mark>`
  * element directly.
+ *
+ * @see more about HTML5 <mark> tag for Spectre.css in sass/base/_text.scss
  */
 
 
 .highlight-mark,
 %highlight-mark {
-  color: $mark-highlight;
+  color: $highlight-color;
   // Remove background highlighting from <mark> in normalize.
   background-color: transparent;
 }
