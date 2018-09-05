@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Returns HTML for a region.
+ *
+ * Complete documentation for this file is available online.
+ * @see https://drupal.org/node/1728112
+ */
+?>
+<?php if ($content): ?>
+  <section class="<?php print $classes; ?>">
+    <div class="container">
+<<<<<<< HEAD:templates/system/region.tpl.php
+      <div class="columns">
+        <?php print $content; ?>
+      </div>
+=======
+      <?php print $content; ?>
+>>>>>>> fixes, improvements:templates/system/region.tpl.php
+    </div>
+  </section>
+<?php endif; ?>
