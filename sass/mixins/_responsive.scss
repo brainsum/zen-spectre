@@ -1,0 +1,29 @@
+/**
+ * @file
+ * Custom media query mixins
+ */
+
+// all breakpoints
+$breakpoints: (
+  2x: $size-2x,
+  xl: $size-xl,
+  lg: $size-lg,
+  md: $size-md,
+  sm: $size-sm,
+  xs: $size-xs
+);
+
+
+// Media query breakpoint mixins
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+  @else {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}

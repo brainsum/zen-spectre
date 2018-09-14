@@ -14,14 +14,11 @@ rules:
   mixins-before-declarations:
     - 2
     - exclude:
+      - 'media'
       - 'breakpoint'
       - 'mq'
       - 'respond-to'
       - 'rtl'
-      - 'zen-breakpoint'
-      - 'zen-layout'
-      - 'zen-mq'
-      - 'zen-respond-to'
 
   # Line Spacing
   one-declaration-per-line: 2
@@ -30,6 +27,7 @@ rules:
     - ignore-single-line-rulesets: 0
     - include: 2
   single-line-per-selector: 2
+  brace-style: 'stroustrup'
 
   # Disallows
   # no-color-keywords: 2
@@ -91,7 +89,7 @@ rules:
     - 2
     - style: double
   shorthand-values: 2
-  url-quotes: 2
+  url-quotes: 0
   variable-for-property: 2
   zero-unit: 2
 
